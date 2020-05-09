@@ -16,4 +16,22 @@ Sofia Mizrahi,17,Estudiante
 Javier Carugati,23,Dev. Backend
 Lucas Montes,20,Marketing Digital
 
+//Sitios de referencia
+https://hogar.mercadolibre.com.ar/muebles/ Hicimos referencia de esta pagina por las funcionalidades 
+implementadas
+
+
+https://www.elmundodelmueble.com/ Hicimos referencia de esta pagina por los productos que ofrecen
+
+
+https://pettishbazar.com.ar/ Hicimos referencia de esta pagina por la estetica que presenta
+
+
+https://www.sodimac.com.ar/sodimac-ar/landing/cat20554/Muebles%20de%20cocina Hicimos referencia de esta pagina por la forma que presentan la variedad de productos
+
+
+https://www.modernobazar.com/ Hicimos referencia de esta pagina por el publico al que apunta
+
+
+
 
