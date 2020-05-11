@@ -33,5 +33,12 @@ https://www.sodimac.com.ar/sodimac-ar/landing/cat20554/Muebles%20de%20cocina Hic
 https://www.modernobazar.com/ Hicimos referencia de esta pagina por el publico al que apunta
 
 
+// Wireframe
+Home: https://marvelapp.com/235giefg/screen/69060226
+Detalle Del item: https://marvelapp.com/235giefg/screen/69063720
+Carrito: https://marvelapp.com/235giefg/screen/69065107
+Registración: https://marvelapp.com/235giefg/screen/69065183
+Agregar item: https://marvelapp.com/235giefg/screen/69067995
+
 
 
