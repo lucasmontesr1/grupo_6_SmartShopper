@@ -1,4 +1,4 @@
-//Productos y Audiencia
+## Productos y Audiencia
 Vendemos productos del hogar como por ejemplo:
 Camas 
 Sillas
@@ -11,12 +11,12 @@ Escritorio
 
 Nuestro sitio apunta al publico de jovenes y adultos, siendo los que mayormente adquieren este tipo de productos.
 
-//Integrantes 
+## Integrantes 
 Sofia Mizrahi,17,Estudiante
 Javier Carugati,23,Dev. Backend
 Lucas Montes,20,Marketing Digital
 
-//Sitios de referencia
+## Sitios de referencia
 https://hogar.mercadolibre.com.ar/muebles/ Hicimos referencia de esta pagina por las funcionalidades 
 implementadas
 
@@ -32,8 +32,7 @@ https://www.sodimac.com.ar/sodimac-ar/landing/cat20554/Muebles%20de%20cocina Hic
 
 https://www.modernobazar.com/ Hicimos referencia de esta pagina por el publico al que apunta
 
-
-// Wireframe
+## Wireframe
 Home: https://marvelapp.com/235giefg/screen/69060226
 Detalle Del item: https://marvelapp.com/235giefg/screen/69063720
 Carrito: https://marvelapp.com/235giefg/screen/69065107
