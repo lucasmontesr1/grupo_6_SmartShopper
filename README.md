@@ -1,13 +1,13 @@
 ## Productos y Audiencia
-Vendemos productos del hogar como por ejemplo:
-Camas 
-Sillas
-Mesas
-Tazas
-Aspiradoras
-Tostadora
-Cafetera
-Escritorio
+* Vendemos productos del hogar como por ejemplo:
+* Camas 
+* Sillas
+* Mesas
+* Tazas
+* Aspiradoras
+* Tostadora
+* Cafetera
+* Escritorio
 
 Nuestro sitio apunta al publico de jovenes y adultos, siendo los que mayormente adquieren este tipo de productos.
 
