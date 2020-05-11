@@ -1,5 +1,5 @@
 ## Productos y Audiencia
-* Vendemos productos del hogar como por ejemplo:
+Vendemos productos del hogar como por ejemplo:
 * Camas 
 * Sillas
 * Mesas
