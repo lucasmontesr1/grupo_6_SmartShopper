@@ -18,7 +18,7 @@ Vendemos productos del hogar como por ejemplo:
 
 ## Sitios de referencia
 
-- Mercado Libre Hogar](https://hogar.mercadolibre.com.ar/muebles/): Hicimos referencia de esta pagina por las funcionalidades 
+- [Mercado Libre Hogar](https://hogar.mercadolibre.com.ar/muebles/): Hicimos referencia de esta pagina por las funcionalidades 
 implementadas.
 
 
