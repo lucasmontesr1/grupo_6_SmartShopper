@@ -1,0 +1,29 @@
+.navbarCustom {
+    height: 25%;
+    background-color:rgb(250, 189, 83);
+}
+.title-home {
+    font-size: 16px;
+}
+
+h3 {
+    font-size: 12px;
+    color: rgba(112, 128, 144, 0.589);
+}
+
+.sansserif {
+    font-family:Helvetica, Arial, sans-serif;
+}
+
+.wrapper {
+    white-space: nowrap;
+    flex-grow: 1;
+}
+
+
+.scrolls {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+    flex-grow: 1;
+}
