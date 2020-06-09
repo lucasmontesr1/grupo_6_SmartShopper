@@ -27,3 +27,37 @@ h3 {
     white-space: nowrap;
     flex-grow: 1;
 }
+
+.register-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.form-items {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    margin-bottom: 1rem;
+}
+
+.form-button {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.flex-direction-column {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+
+}.aling-flex-start {
+    align-self: flex-start;
+}
