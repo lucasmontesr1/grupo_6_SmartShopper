@@ -39,3 +39,7 @@ implementadas.
 - [Carrito](https://marvelapp.com/235giefg/screen/69065107)
 - [Registración](https://marvelapp.com/235giefg/screen/69065183)
 - [Agregar Item](https://marvelapp.com/235giefg/screen/69067995)
+
+
+## Tablero de Trabajo
+https://github.com/lucasmontesr1/grupo_6_SmartShopper/projects/1
