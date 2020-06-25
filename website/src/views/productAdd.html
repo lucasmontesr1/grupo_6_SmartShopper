@@ -17,7 +17,7 @@
     <div class="container-full">
         <dikv class="navbarCustom d-flex shadow-sm">
             <nav class="navbar navbar-expand-lg navbar-light bg-light mt-4 mb-4 flex-fill shadow-sm">
-                <a class="navbar-brand" href="/">SmartShopper</a>
+                <a class="navbar-brand" href="#">SmartShopper</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                     data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                     aria-label="Toggle navigation">
@@ -26,26 +26,10 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
-                                aria-haspopup="true" aria-expanded="false">
-                                Categories
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="#">Muebles</a>
-                                <a class="dropdown-item" href="#">Bazar</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Cocina</a>
-                            </div>
+                            <a class="nav-link" href="#">Admin<span class="sr-only">(current)</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Payment Methods</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link active" href="/register">Register</a>
+                            <a class="nav-link active" href="#">Add Item</a>
                         </li>
                     </ul>
                     <form class="form-inline my-2 my-lg-0">
@@ -57,29 +41,29 @@
         </div>
         <div class=" container-fluid col-lg-6 col-md-auto col-sm-auto">
             <div class="flex-direction-column register-box mt-5 mb-5">
-                <h4 class="aling-flex-start text-muted font-weight-light sansserif">Registrate</h4>
+                <h4 class="aling-flex-start text-muted font-weight-light sansserif">Agregá un item</h4>
                 <div class="  ">
                     <div class="card">
-                        <div class="card-body d-flex flex-wrap">
+                        <div class="card-body">
                             <form>
                                 <div class="row form-items">
                                     <div class=" d-flex flex-wrap col-6 form-items">
                                         <input type="email" class="form-control d-flex" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                            placeholder="Name">
-                                        <small id="emailHelp" class="form-text text-muted">Your name goes here</small>
+                                            placeholder="Título">
+                                        <small id="emailHelp" class="form-text text-muted">Publication Title</small>
                                     </div>
                                     <div class=" d-flex flex-wrap col-6 form-items">
-                                        <input type="email" class="form-control d-flex" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                            placeholder="Surname">
+                                        <input type="number" min="1" step="any" class="form-control d-flex" id="exampleInputEmail1" aria-describedby="emailHelp"
+                                            placeholder="Precio">
                                         <small id="emailHelp" class="form-text text-muted">What's you surname</small>
                                     </div>
-                                    <div class=" d-flex flex-wrap col-6 form-items">
-                                        <input type="email" class="form-control d-flex" id="exampleInputEmail1" aria-describedby="emailHelp"
-                                            placeholder="Enter email">
-                                        <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                    <div class="form-group d-flex flex-wrap col-12 text-muted">
+                                        <label for="addItemFormTextArea"></label>
+                                        <textarea class="form-control" id="addItemFormTextArea" rows="3" placeholder="Descripción del item"></textarea>
                                     </div>
-                                    <div class="form-group d-flex flex-wrap col-6 form-items">
-                                        <input type="password" class="form-control d-flex" id="exampleInputPassword1" placeholder="Password">
+                                    <div class="form-group d-flex flex-wrap col-12 text-muted">
+                                        <label for="exampleFormControlFile1">Subí una imagen:</label>
+                                        <input type="file" class="form-control-file" id="exampleFormControlFile1">
                                     </div>
                                     <div class="d-flex container form-button">
                                         <button type="submit" class="btn btn-primary col-lg-3 form-button">Submit</button>
