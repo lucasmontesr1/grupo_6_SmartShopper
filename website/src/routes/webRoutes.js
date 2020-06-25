@@ -4,5 +4,7 @@ const path = require('path');
 const webController = require(path.resolve(__dirname, '../controllers/webController'))
 
 router.get('/', webController.index);
+router.get('/register', webController.register);
+router.get('/admin/items', webController.addItem);
 
 module.exports = router
