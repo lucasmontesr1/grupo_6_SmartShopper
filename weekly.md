@@ -1,0 +1,1 @@
+//Resúmen tareas completadas y dificultades afrontadas
