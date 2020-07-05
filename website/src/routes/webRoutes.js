@@ -6,5 +6,5 @@ const webController = require(path.resolve(__dirname, '../controllers/webControl
 router.get('/', webController.index);
 router.get('/register', webController.register);
 router.get('/admin/items', webController.addItem);
-
+router.get('/carrito', webController.carrito);
 module.exports = router
