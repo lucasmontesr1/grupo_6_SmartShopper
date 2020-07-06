@@ -1,0 +1,74 @@
+[
+    {
+      "id": 1,
+      "nombre": "Plato Uno",
+      "descripcion": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "precio": 210,
+      "categoria": 0,
+      "imagen": "hamburger.jpg",
+      "colores": "plateada"
+    },
+    {
+      "id": 3,
+      "nombre": "Plato Dos",
+      "descripcion": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "precio": 395,
+      "categoria": 0,
+      "imagen": "hamburger.jpg",
+      "colores": "plateada"
+    },
+    {
+      "id": 4,
+      "nombre": "Plato tres",
+      "descripcion": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "precio": 520,
+      "categoria": 0,
+      "imagen": "hamburger.jpg",
+      "colores": "plateada"
+    },
+    {
+      "id": 5,
+      "nombre": "Plato cuatro",
+      "descripcion": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "precio": 220,
+      "categoria": 0,
+      "imagen": "hamburger.jpg",
+      "colores": "plateada"
+    },
+    {
+      "id": 6,
+      "nombre": "Plato cinco",
+      "descripcion": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "precio": 380,
+      "categoria": 0,
+      "imagen": "hamburger.jpg",
+      "colores": "plateada"
+    },
+    {
+      "id": 7,
+      "nombre": "Plato seis",
+      "descripcion": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "precio": 400,
+      "categoria": 0,
+      "imagen": "hamburger.jpg",
+      "colores": "plateada"
+    },
+    {
+      "id": 8,
+      "nombre": "Plato siete",
+      "descripcion": "Some quick example text to build on the card title and make up the bulk of the card's content.",
+      "precio": "140",
+      "categoria": 0,
+      "imagen": "hamburger.jpg",
+      "colores": "plateada"
+    },
+    {
+      "id": 9,
+      "nombre": "prueba1",
+      "descripcion": "prueba2",
+      "precio": "123891",
+      "categoria": 0,
+      "imagen": "hamburger.jpg",
+      "colores": "plateada"
+    }
+  ]
