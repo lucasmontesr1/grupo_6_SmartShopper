@@ -41,5 +41,5 @@ implementadas.
 - [Agregar Item](https://marvelapp.com/235giefg/screen/69067995)
 
 
-## Tablero de Trabajo
+## Tablero de Trabajo Sprint 3 Actualizado
 https://github.com/lucasmontesr1/grupo_6_SmartShopper/projects/1
