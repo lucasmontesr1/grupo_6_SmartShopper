@@ -6,4 +6,5 @@ const PORT = 3000;
 
 app.use(express.static('public'))
 app.use(webRoutes);
+
 app.listen(PORT, console.log(`Starting server on port: ${PORT}`));

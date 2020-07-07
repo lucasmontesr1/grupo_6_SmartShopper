@@ -7,7 +7,10 @@ const webController = {
         res.sendFile(path.resolve(__dirname, '../views/register.html'))
     },
     addItem:function(req,res){
-        res.send(path.resolve(__dirname, '../views/productAdd.html'))
+        res.sendFile(path.resolve(__dirname, '../views/productAdd.html'))
+    },
+    productDetail:function(req,res){
+        res.sendFile(path.resolve(__dirname, '../views/productDetail.html'))
     }
 }
 
