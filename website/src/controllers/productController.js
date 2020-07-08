@@ -12,7 +12,7 @@ const productController = {
             result = productJsonArray;
         }
         console.log(result);
-        res.render(path.resolve(__dirname, '../views/products'), {products:result})
+        res.render(path.resolve(__dirname, '../views/productList.ejs'), {products:result})
     },
     create:(req, res) => {
         return
@@ -25,3 +25,4 @@ const productController = {
     },
 
 }
+module.exports = productController;
