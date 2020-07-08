@@ -7,4 +7,5 @@ router.get('/', webController.index);
 router.get('/register', webController.register);
 router.get('/admin/items', webController.addItem);
 router.get('/carrito', webController.carrito);
+router.get('/payment', webController.payment);
 module.exports = router
