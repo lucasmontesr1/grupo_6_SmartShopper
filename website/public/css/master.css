@@ -58,6 +58,17 @@ h3 {
     align-content: center;
     justify-content: center;
 
-}.aling-flex-start {
+}
+.aling-flex-start {
     align-self: flex-start;
+}
+
+h1 {
+    font-size: 12px;
+    color: rgba(245, 24, 72, 0.589);
+}
+
+h4 {
+    font-size: 12px;
+    color: rgba(245, 24, 72, 0.589);
 }

@@ -23,9 +23,7 @@ const webController = {
     },
     detail:function(req,res){
         res.render(path.resolve(__dirname, '../views/productDetail'))
-    },
-    payment:function(req,res){
-        res.render(path.resolve(__dirname, '../views/payment'))
+    
     },
     nosotros: function(req,res){
         //res.sendFile(path.resolve(__dirname, '../views/partials/nosotros.html'));
@@ -34,6 +32,9 @@ const webController = {
     contact: function (req, res) {
         //res.sendFile(path.resolve(__dirname, '../views/partials/contact.html'));
         res.render(path.resolve(__dirname, '../views/contact'),{ Title: 'Contacto' });
+    },
+    show: (req, res) => {
+        res.render(path.resolve(__dirname, '../views/web/categories'), {platos});
     }
 
 }
