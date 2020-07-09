@@ -22,12 +22,21 @@ const webController = {
 
     },
     detail:function(req,res){
-        res.render(path.resolve(__dirname, '../views/productDetail.ejs'))
+        res.render(path.resolve(__dirname, '../views/productDetail'))
+    
     },
-    payment:function(req,res){
-        res.render(path.resolve(__dirname, '../views/payment.ejs'))
+    nosotros: function(req,res){
+        //res.sendFile(path.resolve(__dirname, '../views/partials/nosotros.html'));
+        res.render(path.resolve(__dirname, '../views/nosotros'), { Title: 'Nosotros' });
+    },
+    contact: function (req, res) {
+        //res.sendFile(path.resolve(__dirname, '../views/partials/contact.html'));
+        res.render(path.resolve(__dirname, '../views/contact'),{ Title: 'Contacto' });
+    },
+    show: (req, res) => {
+        res.render(path.resolve(__dirname, '../views/web/categories'), {platos});
     }
-       
+
 }
 
 module.exports = webController;
