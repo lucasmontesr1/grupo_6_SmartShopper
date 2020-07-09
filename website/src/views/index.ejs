@@ -5,31 +5,30 @@
         <%-include('partials/header')%>
         
             <div class=" container-fluid flex-row ml-3 mt-4">
-                <h3 class="font-weight-bold sansserif mb-3">Recomendados para vos</h3>
+                <h3 class="sansserif mb-3">Recomendados para vos</h3>
                 <!-- Card Slidder starts here-->
-                <% for (let i = 0; i<products.length;i++){ %> 
-                <div class="row overflow-auto flex-nowrap">
-                    <div class="col-sm-1 col-md-auto col-lg-3">
-                        <div class="card" style="width: 18rem;">
-                            <img class="card-img-top" src="/img/<%=products[i].imagen%>"  alt="Card image cap">
+                <div class="row overflow-auto flex-nowrap card-deck">
+                    <% for (let i = 0; i<products.length;i++){ %>
+                    <div class="col-sm-1 col-md-auto col-lg-3 d-flex align-items-stretch">
+                        <div class="card text-left shadow-sm" style="width: 19rem;">
+                            <img class="card-img-top card-img " src="/img/<%=products[i].imagen%>"  alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title"><%=products[i].nombre %> </h5>
-                                <p class="card-text"><%=products[i].descripcion%> </p>
-                                <p class="card-text"><%=products[i].precio%> </p>
-                                <a href="/carrito" class="btn btn-primary">Comprar</a>
+                                <p class="card-text d-inline-block text-break height-description"><%=products[i].descripcion%> </p>
+                                <p class="card-text font-weight-bolder">$ <%=products[i].precio%> </p>
+                                <div>
+                                    <a href="/payment" class="btn btn-primary">Comprar</a>
+                                    <a href="/products/<%= products[i].id %>"  class="btn btn-info">Detalle</a>
+                                </div>
+                                
                             </div>
                         </div> 
                     </div>
                     <% } %> 
-
-                                    <!-- Card Slidder ends here-->
-
-            </div>
- 
+                </div>
+            </div> 
         </div>
-        <div class="footer-copyright text-center py-3">© 2020 Copyright:
-            <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
-        </div>
+        <%- include('partials/footer') %>
         
     </body>
 </html>

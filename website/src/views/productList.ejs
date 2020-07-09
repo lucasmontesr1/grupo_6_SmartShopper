@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <%- include('partials/head')%>
+    <body>
+        <%-include('partials/header')%>
+        <div class=" container ml-3 mt-4 col-12">
+            <h3 class="sansserif mb-3">Todos los productos</h3>
+            <!-- Card Slidder starts here-->
+            <div class="row flex-wrap">
+                <% for (let i = 0; i<products.length;i++){ %>
+                <div class="col-auto align-items-stretch mb-3">
+                    <div class="card text-left" style="width: 19rem;">
+                        <img class="card-img-top" src="/img/<%=products[i].imagen%>" alt="Card image cap">
+                        <div class="card-body h-100">
+                            <h5 class="card-title"><%=products[i].nombre %> </h5>
+                            <p class="card-text"><%=products[i].descripcion%> </p>
+                            <p class="card-text"><%=products[i].precio%> </p>
+                            <a href="/payment" class="btn btn-primary">Comprar</a>
+                        </div>
+                    </div>
+                </div>
+                <% } %>
+            </div>
+        </div>
+    </body>
+</html>

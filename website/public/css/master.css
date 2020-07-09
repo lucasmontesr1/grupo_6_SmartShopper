@@ -6,10 +6,6 @@
     font-size: 16px;
 }
 
-h3 {
-    font-size: 12px;
-    color: rgba(245, 24, 72, 0.589);
-}
 
 .sansserif {
     font-family:Helvetica, Arial, sans-serif;
@@ -63,12 +59,39 @@ h3 {
     align-self: flex-start;
 }
 
-h1 {
-    font-size: 12px;
-    color: rgba(245, 24, 72, 0.589);
+img {
+    width: 200px;
+    /* You can set the dimensions to whatever you want */
+    height: 200px;
+    object-fit: contain;
 }
 
-h4 {
-    font-size: 12px;
-    color: rgba(245, 24, 72, 0.589);
+.img-prod-detail {
+     width: 400px;
+     /* You can set the dimensions to whatever you want */
+     height: 400px;
+     object-fit: contain;
+}
+
+.height-description{
+    min-height: 20vh;
+    max-width: 100%;
+/* altura de descripcio*/
+
+}
+
+.custom-file {
+    max-width: 95%;
+    align-self: center;
+}
+.img-edit-form{
+    object-fit: contain;
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;    /* For Example */
 }
