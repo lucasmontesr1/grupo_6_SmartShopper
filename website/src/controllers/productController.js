@@ -1,9 +1,9 @@
 const path = require('path');
 const fs = require('fs');
+const arrayIndexRemover = require(path.resolve(__dirname,'../services/arrayService'))
 
 const productController = {
     get:(req, res) => {
-        console.log('test test test')
        let productJsonArray = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/products.json')));
        let result;
         if (req.params.id != null){
@@ -16,7 +16,6 @@ const productController = {
                     productList: productJsonArray
                 }
             })
-            console.log(result[0])
             return
         }else{
             result = productJsonArray;
@@ -34,7 +33,7 @@ const productController = {
             case 'POST':
                 let formItems = req.body
                 let newItem = {
-                    id: jsonArray.length + 1,
+                    id: Math.round(jsonArray.length + 1 * Date.now()),
                     nombre:formItems.nombre,
                     descripcion:formItems.description,
                     categoria:formItems.categoria,
@@ -88,10 +87,9 @@ const productController = {
     },
     delete:(req, res) => {
         let productJsonArray = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/products.json')));
-        productJsonArray.splice(req.param.id,1);
-        fs.writeFileSync(path.resolve(__dirname, '../data/products.json'), JSON.stringify(productJsonArray));
+        let resultArray = arrayIndexRemover(productJsonArray, req.params.id)
+        fs.writeFileSync(path.resolve(__dirname, '../data/products.json'), JSON.stringify(resultArray));
         res.redirect('/')
-        console.log('delete')
         return
     },
 

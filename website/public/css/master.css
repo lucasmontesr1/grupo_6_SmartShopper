@@ -54,7 +54,8 @@
     align-content: center;
     justify-content: center;
 
-}.aling-flex-start {
+}
+.aling-flex-start {
     align-self: flex-start;
 }
 

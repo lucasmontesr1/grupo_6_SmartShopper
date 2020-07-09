@@ -10,9 +10,13 @@ const upload = multer({storage})
 
 router.get('/', webController.index);
 
-router.get('/register', webController.register);
 router.get('/admin/items', webController.addItem);
+router.get('/payment', webController.show);
+router.get('/nosotros', webController.nosotros);
+router.get('/contact', webController.contact);
+router.get('/register', webController.register);
 router.get('/carrito', webController.carrito);
+router.get('/categorias', webController.show);
 
 router.delete('/products/:id', productController.delete)
 router.get('/products', productController.get);
@@ -22,6 +26,6 @@ router.get('/products/:id', productController.get);
 router.get('/products/:id/edit', productController.update)
 router.put('/products/:id', upload.single('imagen'), productController.update)
 
-router.get('/payment', webController.payment);
+
 
 module.exports = router

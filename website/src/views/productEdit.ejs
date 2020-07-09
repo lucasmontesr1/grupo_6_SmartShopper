@@ -4,17 +4,17 @@
 <body>
     <%- include('partials/header') %>
     <div class="container">
-        <h2 class="py-3">Editar item</h2>
-        <div class="card px-4 py-4 shadow-sm">
+        <h2 class="py-3 mx-auto">Editar item</h2>
+        <div class=" col-10 card py-4 shadow-sm m-auto ">
             <div class="row">
-                <div class="mr-auto col-md-6 col-auto">
+                <div class="mr-auto col-md-6 col">
                     <h3 class=" sansserif mb-3 "><%= product.item.nombre %></h2>
                     <div class="">
                         <img class="img-edit-form img-thumbnail" src="/img/<%= product.item.imagen %>" alt="tostadora">
                     </div>
                 </div>
 
-                <div class="col-md-5 col-auto">
+                <div class="col-md-5 col">
                     <h3 class="sansserif">Datos</h3>
                     <form action="/products/<%= product.item.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
                          <input type="hidden" id="id" name="id" value="<%= product.item.id %> ">
@@ -45,8 +45,15 @@
                                 <label id="file-name" class="custom-file-label" for="imagen">Selecciona una nueva
                                     imagen</label>
                             </div>
-                            <div class="d-flex container form-button">
-                                <button type="submit" class="btn btn-primary col-lg-3 form-button">Edit</button>
+                            <div class="d-flex container form-button"> 
+                                <button type="submit"
+                                    class="mx-1 btn btn-success col-lg-3 form-button">New</button>
+                                <button type="submit" class="mx-1 btn btn-primary col-lg-3 form-button">Edit</button>
+                                <form class="" enctype="multipart/form-data" name="deleteform"
+                                    action="/products/<%= product.item.id %>?_method=DELETE" method="POST">
+                                    <input type="hidden">
+                                    <button type="submit" class="mx-1 btn btn-danger">Delete</button>
+                                </form>
                             </div>
                         </div>
                     </form>
