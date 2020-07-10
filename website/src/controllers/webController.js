@@ -1,5 +1,6 @@
 const path = require('path');
 const fs = require('fs');
+const mercadopago = require('mercadopago');
 
 
 
@@ -30,6 +31,30 @@ const webController = {
     },
     show: (req, res) => {
         res.render(path.resolve(__dirname, '../views/web/categories'), {platos});
+    },
+    payment: (req, res) => {
+        mercadopago.configure({
+            access_token: 'APP_USR-3311244539256985-040311-c7fa49c4c335c2c84ba2029bf405ea73-205989559'
+        })
+
+        let preference = {
+            items:[
+                {
+                    title:'F in chat bois',
+                    unit_price:420,
+                    quantity:69
+                }
+            ]
+        }
+
+        mercadopago.preferences.create(preference).then(function(data){
+            console.log(data);
+            res.render(path.resolve(__dirname, '../views/payments.ejs'), {
+                pref: data
+            });
+        }).catch(function (error){
+            res.render('500', {error:error})
+        });
     }
 }
 

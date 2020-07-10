@@ -11,7 +11,7 @@ const upload = multer({storage})
 router.get('/', webController.index);
 
 router.get('/admin/items', webController.addItem);
-router.get('/payment', webController.show);
+router.get('/payment', webController.payment);
 router.get('/nosotros', webController.nosotros);
 router.get('/contact', webController.contact);
 router.get('/register', webController.register);
