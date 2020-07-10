@@ -9,7 +9,7 @@ const webController = {
         res.render(path.resolve(__dirname, '../views/index.ejs'),{products:products})
     },
     register:function(req, res){
-        res.sendFile(path.resolve(__dirname, '../views/register.html'))
+        res.render(path.resolve(__dirname, '../views/register.ejs'))
     },
     addItem:function(req,res){
         res.render(path.resolve(__dirname, '../views/productAdd.ejs'))
