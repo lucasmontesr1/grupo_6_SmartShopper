@@ -34,7 +34,7 @@ const webController = {
     },
     payment: (req, res) => {
         mercadopago.configure({
-            access_token: 'APP_USR-3311244539256985-040311-c7fa49c4c335c2c84ba2029bf405ea73-205989559'
+            access_token: 'TEST-3311244539256985-040311-7c4165b250f77b59b98b56735ce690e2-205989559'
         })
 
         let preference = {
@@ -44,7 +44,12 @@ const webController = {
                     unit_price:420,
                     quantity:69
                 }
-            ]
+            ],
+            back_urls: {
+                    success: 'localhost:3001/payment?id=1',
+                    pending: 'localhost:3001/payment?id=1',
+                    failure: 'localhost:3001/payment?id=1',
+                }
         }
 
         mercadopago.preferences.create(preference).then(function(data){
