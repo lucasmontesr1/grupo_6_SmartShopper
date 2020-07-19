@@ -17,7 +17,7 @@
                 <div class="col-md-5 col">
                     <h3 class="sansserif">Datos</h3>
                     <form action="/products/<%= product.item.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-                         <input type="hidden" id="id" name="id" value="<%= product.item.id %> ">
+                         <input type="hidden" id="id" name="id" value="<%= product.item.id %>">
                         <div class="row form-items justify-content-center">
 
                             <div class="d-flex flex-wrap col-12 form-items">
@@ -73,5 +73,10 @@
         </div>
     </div>
 <%- include('partials/footer') %>
+<script>
+    $('#imagen').change(function () {
+        $("#file-name").text(this.files[0].name);
+    });
+</script>
 </body>
 </html>
