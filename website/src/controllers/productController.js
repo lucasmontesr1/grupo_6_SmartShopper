@@ -1,10 +1,11 @@
 const path = require('path');
 const fs = require('fs');
-const arrayIndexRemover = require(path.resolve(__dirname,'../services/arrayService'))
+const arrayIndexRemover = require(path.resolve(__dirname,'../services/arrayService'));
+const jsonDbService = require(path.resolve(__dirname, '../services/jsonDbService'));
 
 const productController = {
     get:(req, res) => {
-       let productJsonArray = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/products.json')));
+       let productJsonArray = jsonDbService.getFile('products');
        let result;
         if (req.params.id != null){
             result = productJsonArray.filter(product => product.id == req.params.id);
@@ -24,8 +25,8 @@ const productController = {
         return
     },
     create:(req, res, next) => {
-        let jsonArray = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/products.json')));
-        let categories = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'categories.json')))
+        let jsonArray = jsonDbService.getFile('products');
+        let categories = jsonDbService.getFile('categories');
         switch (req.method){
             case 'GET':
                 res.render(path.resolve(__dirname, '../views/productCreate.ejs'), {categories:categories})
@@ -37,20 +38,21 @@ const productController = {
                     nombre:formItems.nombre,
                     descripcion:formItems.description,
                     categoria:formItems.categoria,
-                    imagen:req.file.filename,
+                    imagen:req.file ? req.file.filename : "",
                     colores:'placeholder',
                     precio:formItems.precio
                 }
-                jsonArray.push(newItem)
-                fs.writeFileSync(path.resolve(__dirname, '../data/products.json'),JSON.stringify(jsonArray));
+                jsonArray.push(newItem);
+                jsonDbService.updateFile('products', jsonArray)
                 res.redirect(`/products/${newItem.id}`)
+                break;
         }
     },
     update:(req, res) => {
-        let productJsonArray = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/products.json')));
+        let productJsonArray = jsonDbService.getFile('products');
         switch (req.method) {
             case 'GET':
-                let categories = JSON.parse(fs.readFileSync(path.resolve(__dirname, '..', 'data', 'categories.json')))
+                let categories = jsonDbService.getFile('categories');
                 let result;
                 if (req.params.id != null) {
                     result = productJsonArray.filter(product => product.id == req.params.id);
@@ -67,21 +69,24 @@ const productController = {
                 let formItems = req.body;
                 let id = formItems.id;
                 let modIndex = productJsonArray.findIndex((element) => element.id == id);
-                let tempSpecs = productJsonArray[modIndex].specs; //todavia no tengo decidido como lo voy a manejar en el front
+                if (productJsonArray[modIndex].hasOwnProperty('specs')) {
+                    var tempSpecs = productJsonArray[modIndex].specs; //todavia no tengo decidido como lo voy a manejar en el front
+                }
                 let deleteFile = productJsonArray[modIndex].imagen;
                 productJsonArray[modIndex] = {
                     id: id,
-                    nombre: formItems.nombre,
+                    nombre: formItems.nombre ? formItems.nombre : productJsonArray[modIndex].nombre,
                     descripcion: formItems.description,
                     categoria: formItems.categoria,
                     specs: tempSpecs,
-                    imagen: req.file.filename,
+                    imagen: req.file ? req.file.filename : productJsonArray[modIndex].imagen,
                     colores: 'placeholder',
                     precio: formItems.precio
                 }
                 fs.writeFileSync(path.resolve(__dirname, '../data/products.json'), JSON.stringify(productJsonArray));
                 res.redirect(`/products/${id}`);
                 fs.unlinkSync(path.resolve(__dirname, '../../public/img', deleteFile));
+                break;
         }
         
     },

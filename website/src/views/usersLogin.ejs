@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<%- include('partials/head')%>
+
+<body>
+    <%-include('partials/header')%>
+    <div class=" container col-lg-6 col-md-auto col-sm-auto justify-content-center">
+        <div class=" m-4 col-">
+            <h4 class="aling-flex-start text-muted font-weight-bold sansserif">Ingresá</h4>
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body justify-content-center">
+                        <form action="/users/login" method="POST">
+                            <div class="justify-content-center">
+                                <div class=" d-flex flex-wrap form-items col">
+                                    <input type="email" class="form-control d-flex" id="email" name="email"
+                                        placeholder="Enter email">
+                                    <% if (existErr && typeof parsedErrors.email != 'undefined') {%>
+                                    <small id="emailHelp" class="form-text text-danger"><%= parsedErrors.email %></small>
+                                    <% } %>
+                                </div>
+                                 
+                                <div class="d-flex flex-wrap form-items col">
+                                    <input type="password" class="form-control d-flex" id="password" name="password"
+                                        placeholder="Password">
+                                    <% if (existErr && typeof parsedErrors.password != 'undefined') {%>
+                                    <small id="emailHelp" class="form-text text-danger"><%= parsedErrors.password %></small>
+                                    <% } %>
+                                </div>
+                                <div class="form-group col">
+                                    <input class="ml-1" type="checkbox" name="keepMeLogged">
+                                    <label class="checkbox-inline ml-1">Remember Me</label>
+                                </div>
+                                <div class="d-flex form-button col form-group">
+                                    <button type="submit" class="mr-4 col btn btn-primary form-button">Submit</button>
+                                    <a class="btn btn-outline-primary col" href="/users/register" role="button">Creá una cuenta</a>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Card Slidder ends here-->
+        <!-- Footer -->
+    </div>
+    </div>
+    <%- include('partials/footer') %>
+    <script>
+        $('#imagen').change(function () {
+            $("#file-name").text(this.files[0].name);
+        });
+    </script>
+</body>
+
+</html>
