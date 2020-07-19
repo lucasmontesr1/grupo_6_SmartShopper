@@ -81,7 +81,7 @@ img {
 }
 
 .custom-file {
-    max-width: 95%;
+    display: flex;
     align-self: center;
     justify-self: center;
 }

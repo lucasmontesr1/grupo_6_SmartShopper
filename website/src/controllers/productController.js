@@ -45,6 +45,7 @@ const productController = {
                 jsonArray.push(newItem);
                 jsonDbService.updateFile('products', jsonArray)
                 res.redirect(`/products/${newItem.id}`)
+                break;
         }
     },
     update:(req, res) => {
@@ -85,6 +86,7 @@ const productController = {
                 fs.writeFileSync(path.resolve(__dirname, '../data/products.json'), JSON.stringify(productJsonArray));
                 res.redirect(`/products/${id}`);
                 fs.unlinkSync(path.resolve(__dirname, '../../public/img', deleteFile));
+                break;
         }
         
     },

@@ -31,5 +31,7 @@ router.put('/products/:id', productImgUpload.single('imagen'), productController
 
 router.get('/users/register', usersController.get);
 router.post('/users/create', userImgUpload.single('imagen'), usersMiddleware.checkUserExist, usersController.create);
+router.get('/users/login', usersController.login)
+router.post('/users/login',usersMiddleware.checksLogin, usersController.login)
 
 module.exports = router

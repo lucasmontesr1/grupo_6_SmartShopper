@@ -3,8 +3,9 @@
         <div class="navbarCustom d-flex shadow-sm">
             <nav class="navbar navbar-expand-lg navbar-light bg-light mt-4 mb-4 flex-fill shadow-sm">
                 <a class="navbar-brand" href="/">SmartShopper</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                    data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -12,11 +13,14 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
                         </li>
+                        <% if (!locals.user) {%>
                         <li class="nav-item">
                             <a class="nav-link" href="/users/register">Register</a>
                         </li>
-                        <li class="nav-item dropdown d-flex justify-content-center">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <% } %>
+                        <li class="nav-item dropdown d-flex">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Categorias
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -31,17 +35,36 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/contact">Contact</a>
                         </li>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/carrito">Carrito</a>
-                    </li>
-                        
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/carrito">Carrito</a>
+                        </li>
+
                     </ul>
-                    
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
+
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <form class="form-inline my-2 my-lg-0">
+                                <input class="form-control mr-sm-2" type="search" placeholder="Search"
+                                    aria-label="Search">
+                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                            </form>
+                        </li>
+                        <% if (locals.user) { %>
+                        <li>
+                            <div class="nav-item">
+                                <a class="nav-link text-primary" href="#">
+                                    <%= `${locals.user.name} ${locals.user.surname}` %> </a>
+                            </div>
+                        </li>
+                        <% } else { %>
+                        <li class="nav-item"> 
+                            <div class=nav-item>
+                                <a class="nav-link" href="/users/login">Login</a>
+                            </div>
+                        </li>
+                        <% } %>
+                    </ul>
                 </div>
             </nav>
         </div>

@@ -6,11 +6,10 @@ const mercadopago = require('mercadopago');
 
 const webController = {
     index: function(req, res){
+        console.log(res.locals);
+        console.log(req.session);
         let products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/products.json')));
         res.render(path.resolve(__dirname, '../views/index.ejs'),{products:products})
-    },
-    register:function(req, res){
-        res.render(path.resolve(__dirname, '../views/register.ejs'))
     },
     addItem:function(req,res){
         res.render(path.resolve(__dirname, '../views/productAdd.ejs'))
