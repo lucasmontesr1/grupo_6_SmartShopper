@@ -66,6 +66,11 @@ const usersController = {
                 };
                 res.redirect('/');
         }
+    },
+    logout: (req, res) => {
+        req.session.destroy();
+        res.cookie('email', null, {maxAge:-1});
+        res.redirect('/');
     }
 }
 
