@@ -26,12 +26,13 @@ router.get('/products', productController.get);
 router.get('/products/create', productController.create);
 router.post('/products/create', productImgUpload.single('imagen'), productController.create);
 router.get('/products/:id', productController.get);
-router.get('/products/:id/edit', productController.update)
-router.put('/products/:id', productImgUpload.single('imagen'), productController.update)
+router.get('/products/:id/edit', productController.update);
+router.put('/products/:id', productImgUpload.single('imagen'), productController.update);
 
 router.get('/users/register', usersController.get);
 router.post('/users/create', userImgUpload.single('imagen'), usersMiddleware.checkUserExist, usersController.create);
-router.get('/users/login', usersController.login)
-router.post('/users/login',usersMiddleware.checksLogin, usersController.login)
+router.get('/users/login', usersController.login);
+router.post('/users/login',usersMiddleware.checksLogin, usersController.login);
+router.get('/users/logout', usersController.logout);
 
 module.exports = router
