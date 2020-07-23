@@ -100,3 +100,30 @@ img {
 a {
     text-decoration: none;    /* For Example */
 }
+
+.container-fluid 
+{
+    background-color:rgb(255, 233, 184);
+}
+
+.table-responsive
+{
+    background-color:rgb(255, 233, 184);
+}
+
+.col-lg-6
+{
+    background-color:rgb(255, 233, 184);
+}
+
+.fonditos
+{
+    background-color:rgb(255, 233, 184);
+}
+
+.align-middle
+{
+    
+    align-self: flex-start;
+
+}
