@@ -100,8 +100,7 @@ const productController = {
     },
     search:(req, res) => {
         let result = productSearchService( req.query );
-        res.send(result)
+        res.send(result);
     }
-
 }
 module.exports = productController;
