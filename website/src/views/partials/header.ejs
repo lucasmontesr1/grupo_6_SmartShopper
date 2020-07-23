@@ -51,14 +51,17 @@
                             </form>
                         </li>
                         <% if (locals.user) { %>
-                        <li>
-                            <div class="nav-item">
-                                <a class="nav-link text-primary" href="#">
-                                    <%= `${locals.user.name} ${locals.user.surname}` %> </a>
+                        <li class="nav-item dropdown d-flex">
+                            <a class="nav-link text-primary dropdown-toggle" data-toggle="dropdown" id="loginDropdown"
+                                aria-haspopup="true" aria-expanded="false" href="#"
+                                role="button"><%= `${locals.user.name} ${locals.user.surname}` %>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="loginDropdown">
+                                <a class="dropdown-item" href="/users/logout">LogOut</a>
                             </div>
                         </li>
                         <% } else { %>
-                        <li class="nav-item"> 
+                        <li class="nav-item">
                             <div class=nav-item>
                                 <a class="nav-link" href="/users/login">Login</a>
                             </div>
