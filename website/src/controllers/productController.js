@@ -2,6 +2,7 @@ const path = require('path');
 const fs = require('fs');
 const arrayIndexRemover = require(path.resolve(__dirname,'../services/arrayService'));
 const jsonDbService = require(path.resolve(__dirname, '../services/jsonDbService'));
+const productSearchService = require(path.resolve(__dirname, '../services/productSearchService'))
 
 const productController = {
     get:(req, res) => {
@@ -97,6 +98,10 @@ const productController = {
         res.redirect('/')
         return
     },
+    search:(req, res) => {
+        let result = productSearchService( req.query );
+        res.send(result)
+    }
 
 }
 module.exports = productController;
