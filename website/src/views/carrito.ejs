@@ -7,14 +7,12 @@
           <div class="container">
             <div class="row">
               <div class="col-lg-12 p-5 bg-white rounded shadow-sm mb-5">
-      
                 <!-- Shopping cart table -->
                 <div class="table-responsive">
                   <table class="table">
                     <thead>
                       <tr>
         <h4 class="aling-flex-start text-muted font-weight-bold sansserif">Carrito</h4>
-
                         <th scope="col" class="border-0 bg-light">
                           <div class="aling-flex-start text-muted font-weight-bold sansserif text-center">Product</div>
                         </th>
@@ -40,23 +38,25 @@
                           </div>
                         </th>
                         <td class="border-0 align-middle text-center"><strong>$79.00</strong></td>
-                        <td class="border-0 align-middle text-center"><strong>3</strong></td>
-                        <td class="border-0 align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a></td>
+                        <td>
+                          <input type="number" class=" col-lg-7 align-middle text-center" placeholder="Cantidad" aria-label="Example text with button addon" aria-describedby="button-addon3">
+                      </td>    
+                        <td class="border-0 align-middle"><button type="submit" class="mx-1 btn btn-danger">Borrar</button></i></a></td>
                       </tr>
                       <tr>
                         <th scope="row">
                           <div class="p-2">
                             <img src="/img/cafetera.jpg" alt="20" width="40" class="img-fluid rounded shadow-sm">
                             <div class="ml-3 d-inline-block align-middle">
-                              
                               <h5 class="mb-0"><a href="#" class="text-dark d-inline-block">Cafetera</a></h5><span class="text-muted font-weight-normal font-italic">Category:Household appliance</span>
-                            
                             </div>
                           </div>
                         </th>
                         <td class="align-middle text-center"><strong>$79.00</strong></td>
-                        <td class="align-middle text-center"><strong>3</strong></td>
-                        <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
+                        <td>
+                        <input type="number" class="col-lg-7 align-middle text-center" placeholder="Cantidad" aria-label="Example text with button addon" aria-describedby="button-addon3">
+                      </div></td>    
+                        <td class="align-middle"><button type="submit" class="mx-1 btn btn-danger">Borrar</button></i></a>
                         </td>
                       </tr>
                       <tr>
@@ -64,18 +64,17 @@
                           <div class="p-2">
                             <img src="/img/tostadora.jpg" alt="" width="70" class="img-fluid rounded shadow-sm">
                             <div class="ml-3 d-inline-block align-middle">
-
-                              
                               <h5 class="mb-0"> <a href="#" class="text-dark d-inline-block">Tostadora</a></h5><span class="text-muted font-weight-normal font-italic">Category:Household appliance</span>
-
-                              
-
                             </div>
                           </div>
                           <td class="align-middle text-center"><strong>$79.00</strong></td>
-                          <td class="align-middle text-center"><strong>3</strong></td>
-                          <td class="align-middle"><a href="#" class="text-dark"><i class="fa fa-trash"></i></a>
+                          <div class="input-group mb-4">
+                            <td>
+                            <input type="number" class="col-lg-7 align-middle text-center" placeholder="Cantidad" aria-label="Example text with button addon" aria-describedby="button-addon3">
+                          </div></td>    
+                          <td class="align-middle"><button type="submit" class="mx-1 btn btn-danger">Borrar</button></i></a>
                           </td>
+                        </a></td>
                       </tr>
                     </tbody>
                   </table>
@@ -83,7 +82,6 @@
                 <!-- End -->
               </div>
             </div>
-      
             <div class="row py-5 p-4 bg-white rounded shadow-sm">
               <div class="col-lg-6">
                 <div class="aling-flex-start text-muted font-weight-bold sansserif text-center">Coupon code</div>
@@ -117,10 +115,14 @@
                 </div>
               </div>
             </div>
-      
           </div>
         </div>
       </div>
       <%-include('partials/footer')%>
 </body>
 </html>
+
+
+
+
+
