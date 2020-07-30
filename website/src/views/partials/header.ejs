@@ -49,6 +49,7 @@
                                     aria-label="Search">
                                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                             </form>
+                           
                         </li>
                         <% if (locals.user) { %>
                         <li class="nav-item dropdown d-flex">
@@ -64,8 +65,12 @@
                         <li class="nav-item">
                             <div class=nav-item>
                                 <a class="nav-link" href="/users/login">Login</a>
-                            </div>
+                        
+                         </div>
                         </li>
+                        <div class=nav-item>
+                            <a class="nav-link" href="/users/register">Register</a>
+                        </div>
                         <% } %>
                     </ul>
                 </div>
