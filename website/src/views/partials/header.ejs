@@ -35,10 +35,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="/contact">Contact</a>
                         </li>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/carrito">Carrito</a>
-                        </li>
+                       
+                        
+                        
 
                     </ul>
 
@@ -52,15 +51,20 @@
                            
                         </li>
                         <% if (locals.user) { %>
-                        <li class="nav-item dropdown d-flex">
-                            <a class="nav-link text-primary dropdown-toggle" data-toggle="dropdown" id="loginDropdown"
-                                aria-haspopup="true" aria-expanded="false" href="#"
-                                role="button"><%= `${locals.user.name} ${locals.user.surname}` %>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="loginDropdown">
-                                <a class="dropdown-item" href="/users/logout">LogOut</a>
-                            </div>
-                        </li>
+                            
+                
+                            <li class="nav-item">
+                                      <a class="nav-link" href="/administrar">Administrar</a>
+                                  </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/carrito">Carrito</a>
+                              </li>
+                            
+                              <li class="nav-item">
+                                <a class="nav-link" href="/users/logout">Cerrar sesión<ion-icon name="log-out-outline"></ion-icon></a>
+                              </li>
+                              
+                            
                         <% } else { %>
                         <li class="nav-item">
                             <div class=nav-item>
