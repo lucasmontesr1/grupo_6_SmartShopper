@@ -14,3 +14,8 @@ En este entrega del tercer sprint, nuevamente logramos cumplir con la consigna e
 En esta oportunidad mejoramos más la comunicación aunque creemos que todavía podemor mejorarla aún más. Además, nos dividimos bien las tareas y pudimos entender qué se nos presentaba. 
 De a poco, seguimes mejorando nuestras destrezas en distintas áreas del trabajo. 
 En conlución, consideramos que en este sprint trabajamos mejorar que en otros ya que pudimos introducirnos aún más todavía en lo esperado y contamos con apoyo de distintas partes. Es por eso que una vez más, consideramos que debemos seguir este camino mejorando nuestra comunicación y lograr un mejor rendimiento de los tiempos. 
+
+## Breve retrospectiva Sprint 5
+En este sprint completamos todo en tiempo y forma. La comunicación si fue bastante debil en esta ocación asi que consideramos que estaría bueno para la próxima fortalecer más esa área nuevamente. 
+Además, consideramos que debemos seguir aportando todos lo más que podamos ya que nos complementamos mejor. 
+En conclusión, creemos que podemos  mejorar más la comunicación para una óptima entrega. 
