@@ -1,18 +1,28 @@
-[
-    "beds",
-    "chairs",
-    "desk",
-    "Sofas",
-    "Pinball machine",
-    "Television set",
-    "Table",
-    "Coffee table",
-    "Bookcase",
-    "Closet",
-    "Shelving",
-    "Lamps",
-    "placeholder",
-    "placeholder",
-    "placeholder",
-    "placeholder"
+[{
+        "id": 1,
+        "categories": "Computacion"
+    },
+    {
+        "id": 2,
+        "categories": "Electrodomesticos"
+    },
+    {
+        "id": 3,
+        "categories": "Fitness"
+    }, {
+        "id": 4,
+        "categories": "Cuidado Personal"
+    }, {
+        "id": 5,
+        "categories": "Juguetes"
+    }, {
+        "id": 6,
+        "categories": "Celulares"
+    }, {
+        "id": 7,
+        "categories": "Telefonos"
+    }, {
+        "id": 8,
+        "categories": "Hogar, Muebles y Jardin"
+    }
 ]
