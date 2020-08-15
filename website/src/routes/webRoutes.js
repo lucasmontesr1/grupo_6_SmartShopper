@@ -7,7 +7,7 @@ const productController = require(path.resolve(__dirname, '../controllers/produc
 const usersController = require(path.resolve(__dirname, '../controllers/usersController'));
 const storage = require(path.resolve(__dirname, '../services/storageService'));
 const usersMiddleware = require(path.resolve(__dirname, '../middlewares/usersMiddleware'))
-
+const adminController = require(path.resolve(__dirname , '..','controllers','adminController'));
 const productImgUpload = multer({storage:storage.product})
 const userImgUpload = multer({storage:storage.users})
 
@@ -35,5 +35,14 @@ router.post('/users/create', userImgUpload.single('imagen'), usersMiddleware.che
 router.get('/users/login', usersController.login);
 router.post('/users/login',usersMiddleware.checksLogin, usersController.login);
 router.get('/users/logout', usersController.logout);
+
+router.get('/administrar', adminController.index);
+router.get('/admin/create',  adminController.create);
+
+router.get('/admin/detail/:id', adminController.show);
+router.get('/admin/delete/:id', adminController.destroy);
+router.get('/admin/edit/:id', adminController.edit);
+
+
 
 module.exports = router

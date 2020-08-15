@@ -7,7 +7,7 @@ const methodOverride = require('method-override');
 const customSession = require(path.resolve(__dirname, './middlewares/sessionMiddleware'));
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
-
+const acceso = require('./middlewares/acceso');
 
 app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: false}));
@@ -21,6 +21,7 @@ app.use(customSession);
 app.use(methodOverride('_method'));
 app.use(express.static('public'));
 app.use(webRoutes);
+app.use(acceso);
 
 
 app.listen(PORT, console.log(`Starting server on port: ${PORT}`));
