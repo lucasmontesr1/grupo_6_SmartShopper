@@ -16,19 +16,17 @@
                 <th>Nombre del Producto</th>
                 <th>Ver</th>
                 <th>Editar</th>
-                <th>Borrar</th>
             </tr>
         </thead>
         <tbody>
-            <% products.forEach(products => { %>
+            <% for (const product of products) { %>
                 <tr>
-                    <td><%= products.id %> </td>
-                    <td><%= products.nombre%> </td>
-                    <td><a href="/admin/detail/<%= products.id%>"><ion-icon name="eye-outline"></ion-icon></a></td>
-                    <td><a href="/admin/edit/<%= products.id%>"><ion-icon name="create-outline"></ion-icon></a></td>
-                    <td><a href="/admin/delete/<%= products.id%>"><ion-icon name="trash-outline"></ion-icon></a></td>
+                    <td><%= product.id %> </td>
+                    <td><%= product.name%> </td>
+                    <td><a href="/products/<%= product.id%>"><ion-icon name="eye-outline"></ion-icon></a></td>
+                    <td><a href="/products/<%= product.id%>/edit"><ion-icon name="create-outline"></ion-icon></a></td>
                 </tr>
-            <% }) ; %>
+            <% } %>
             
 
         </tbody>

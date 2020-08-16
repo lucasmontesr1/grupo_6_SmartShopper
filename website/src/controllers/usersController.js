@@ -1,16 +1,15 @@
 const bcrypt = require('bcryptjs');
 const path = require('path');
-const jsonDbService = require(path.resolve(__dirname, '../services/jsonDbService'));
+const UserModel = require(path.resolve(__dirname, '../database/models/User'));
+//const sequelize = require(path.resolve(__dirname, '../database/connection.js'));
 const {
     validationResult
-} = require('express-validator')
+} = require('express-validator');
 
 const usersController = {
     create: (req, res) => {
-        console.log('Users controller')
         let salt = bcrypt.genSaltSync(10);
         let user = req.body;
-        let userJsonArray = jsonDbService.getFile('users');
         let newUser = {
             id: bcrypt.hashSync('user.doc' + user.email, salt),
             name: user.name,
@@ -20,8 +19,14 @@ const usersController = {
             img: req.file ? req.file.filename : "no-image",
             document: req.body.document
         }
-        userJsonArray.push(newUser);
-        jsonDbService.updateFile('users', userJsonArray);
+        UserModel.create({
+            firstName: newUser.name,
+            surname: newUser.surname,
+            email: newUser.email,
+            password: newUser.password,
+            img: newUser.img,
+            document: newUser.document
+        }).then(() => console.log('New user created')).catch(err => console.log(err));
         res.redirect('/')
     },
     get: (req, res) => {
@@ -54,22 +59,30 @@ const usersController = {
                     break;
                 }
                 console.log('Not errors');
-                let userJsonArray = jsonDbService.getFile('users');
-                let loggedUser = userJsonArray.find(user => user.email == req.body.email);
-                delete loggedUser.password;
-                req.session.user = loggedUser;
 
-                if (req.body.keepMeLogged) {
-                    res.cookie('email', loggedUser.email, {
-                        maxAge: 1000 * 60 * 60 * 24
-                    });
-                };
-                res.redirect('/');
+                UserModel.findOne({
+                    where: {
+                        email: req.body.email
+                    }
+                }).then((user) => {
+                    delete user.password
+                    req.session.user = user;
+                    if (req.body.keepMeLogged) {
+                        res.cookie('email', user.email, {
+                            maxAge: 1000 * 60 * 60 * 24
+                        });
+                    };
+                    res.redirect('/')
+                }).catch((err)=>{
+                    console.log('Error when logging in. [method:usercontroller_login]')
+                });
         }
     },
     logout: (req, res) => {
         req.session.destroy();
-        res.cookie('email', null, {maxAge:-1});
+        res.cookie('email', null, {
+            maxAge: -1
+        });
         res.redirect('/');
     }
 }

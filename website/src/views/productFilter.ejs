@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<%- include('partials/head')%>
+
+<body>
+    <%-include('partials/header')%>
+
+    <div class=" container-fluid flex-row ml-3 mt-4">
+        <h3 class="sansserif mb-3">Búsqueda </h3>
+        <!-- Card Slidder starts here-->
+        <div class="row overflow-auto flex-nowrap card-deck">
+            <% for (const product of results){ %>
+            <div class="col-sm-1 col-md-auto col-lg-3 d-flex align-items-stretch">
+                <div class="card text-left shadow-sm" style="width: 19rem;">
+                    <img class="card-img-top card-img " src="/img/<%= product.img %>" alt="Card image cap">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= product.name %> </h5>
+                        <p class="card-text d-inline-block text-break height-description"><%=product.description%>
+                        </p>
+                        <p class="card-text font-weight-bolder">$ <%= product.price %> </p>
+                        <div>
+                            <a href="/payment" class="btn btn-primary">Comprar</a>
+                            <a href="/products/<%= product.id %>" class="btn btn-info">Detalle</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <% } %>
+        </div>
+    </div>
+    </div>
+    <%- include('partials/footer') %>
+
+</body>
+
+</html>

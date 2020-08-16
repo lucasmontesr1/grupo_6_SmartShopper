@@ -5,23 +5,16 @@
         <%-include('partials/header')%>
         <!---------Comienza el main------------------------>
         <div class="container">
-            <h3 class="my-4 font-weight-bold sansserif mb-3"><%= product.item.nombre %></h1>
+            <h3 class="my-4 font-weight-bold sansserif mb-3"><%= product.name %></h1>
             <div class="row">
                 <div class="col-md-7">
-                    <img class="img-edit-form img-thumbnail " src="/img/<%= product.item.imagen %>" alt="tostadora">
+                    <img class="img-edit-form img-thumbnail " src="/img/<%= product.img %>" alt="tostadora">
                 </div>
                 <div class="col-md-4">
                     <h3 class="my-3 font-weight-bold sansserif mb-3">Descripcion</h3>
-                    <p> <%= product.item.descripcion %> </p>
-                    <% if (product.item.specs != null ) { %>
-                    <h3 class="my-3 font-weight-bold sansserif mb-3">Cualidades</h3>
-                    <ul>
-                        <% for (let i = 0; i < product.item.specs.length; i++) {%>
-                        <li><%= product.item.specs[i] %></li>
-                        <% } %> 
-                    </ul>
-                    <% } %> 
-                    <h4>Precio: $ <%= product.item.precio %>  </h4>
+                    <p> <%= product.description %> </p>
+                
+                    <h4>Precio: $ <%= product.price %>  </h4>
                     <div class="input-group mb-4">
                         <div class="input-group-prepend">
                           <button class="btn btn-outline-secondary" type="button" id="button-addon1">Cantidad</button>
@@ -31,15 +24,17 @@
                      <div class="input-group mb-3"> 
                      <div class="row">     
                         <button class="btn btn-primary mx-1" type="submit">Comprar</button>
+                        <% if (locals.user) {%>
                         <button type="button" class="btn mx-1 btn-warning">
-                            <a href="/products/<%= product.item.id %>/edit "
+                            <a href="/products/<%= product.id %>/edit "
                                 class=" active">Editar</a>
                         </button>
                         <form class="" enctype="multipart/form-data" name="deleteform"
-                            action="/products/<%= product.item.id %>?_method=DELETE" method="POST">
+                            action="/products/<%= product.id %>?_method=DELETE" method="POST">
                             <input type="hidden">
                             <button type="submit" class="mx-1 btn btn-danger">Delete</button>
                         </form>
+                        <% } %> 
                         
                     </div>
                 </div>
@@ -47,10 +42,10 @@
             </div>
             <h3 class="my-4 font-weight-bold sansserif mb-3">Otros Productos</h3>
             <div class="row overflow-auto flex-nowrap card-deck">
-                <% for( let i = 0; i < product.productList.length; i++) { %>
+                <% for(const prod of allProducts) { %>
                 <div class="col-md-3 col-sm-6 mb-4">
                     <a href="#">
-                        <img class="img-thumbnail img-fluid" src="/img/<%= product.productList[i].imagen %> " alt="">
+                        <img class="img-thumbnail img-fluid" src="/img/<%= prod.img %> " alt="">
                     </a>
                 </div>
                 <% } %> 

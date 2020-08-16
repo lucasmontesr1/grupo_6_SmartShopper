@@ -8,35 +8,34 @@
         <div class=" col-10 card py-4 shadow-sm m-auto ">
             <div class="row">
                 <div class="mr-auto col-md-6 col">
-                    <h3 class=" sansserif mb-3 "><%= product.item.nombre %></h2>
+                    <h3 class=" sansserif mb-3 "><%= product.name %></h2>
                     <div class="">
-                        <img class="img-edit-form img-thumbnail" src="/img/<%= product.item.imagen %>" alt="tostadora">
+                        <img class="img-edit-form img-thumbnail" src="/img/<%= product.img %>" alt="tostadora">
                     </div>
                 </div>
 
                 <div class="col-md-5 col">
                     <h3 class="sansserif">Datos</h3>
-                    <form action="/products/<%= product.item.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-                         <input type="hidden" id="id" name="id" value="<%= product.item.id %>">
+                    <form action="/products/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+                         <input type="hidden" id="id" name="id" value="<%= product.id %>">
                         <div class="row form-items justify-content-center">
 
                             <div class="d-flex flex-wrap col-12 form-items">
-                                <input type="text" class="form-control" id="nombre" name="nombre" placeholder=" <%= product.item.nombre %> ">
+                                <input type="text" class="form-control" id="nombre" name="nombre" placeholder=" <%= product.name %> ">
                             </div>
                             <div class=" d-flex flex-wrap col-12 form-items">
                                 <label for="description">Descripcion del articulo</label>
-                                <textarea placeholder="<%= product.item.descripcion %> " class="form-control" id="description" name="description" rows="3"></textarea>
+                                <textarea placeholder="<%= product.description %> " class="form-control" id="description" name="description" rows="3"></textarea>
                             </div>
                             <div class=" d-flex flex-wrap col-6 form-items">
                                 <input type="number" class="form-control d-flex" id="precio" name="precio"
-                                    placeholder="$ <%= product.item.precio %> ">
+                                    placeholder="$ <%= product.price %> ">
                             </div>
                             <div class="form-group d-flex flex-wrap col-6 form-items">
                                 <select id="categoria" name="categoria" class="form-control">
-                                    <option value="<%= product.item.categoria  %> " disabled selected>
-                                        <%= product.item.categoria  %></option>
-                                    <% for (let i = 0; i < product.categories.length; i++) { %>
-                                    <option value="<%= product.categories[i] %>"> <%= product.categories[i] %> </option>
+                                    <% for (const category of categories) { %>
+                                    <option value="<%= category.id  %> " disabled <% if (category.id == product.categoryId) {%> selected <% } %> >
+                                        <%= category.name %></option>
                                     <% } %>
                                 </select>
                             </div>
@@ -50,7 +49,7 @@
                                     class="mx-1 btn btn-success col-lg-3 form-button">New</button>
                                 <button type="submit" class="mx-1 btn btn-primary col-lg-3 form-button">Edit</button>
                                 <form class="" enctype="multipart/form-data" name="deleteform"
-                                    action="/products/<%= product.item.id %>?_method=DELETE" method="POST">
+                                    action="/products/<%= product.id %>?_method=DELETE" method="POST">
                                     <input type="hidden">
                                     <button type="submit" class="mx-1 btn btn-danger">Delete</button>
                                 </form>
@@ -59,14 +58,13 @@
                     </form>
                 </div>
             </div>
-            
         </div>
         <h3 class="my-4 font-weight-bold sansserif mb-3">Otros Productos</h3>
         <div class="row overflow-auto flex-nowrap card-deck">
-            <% for( let i = 0; i < product.productList.length; i++) { %>
+            <% for (const prod of allProducts) { %>
             <div class="col-md-3 col-sm-6 mb-4">
                 <a href="#">
-                    <img class="img-thumbnail img-fluid" src="/img/<%= product.productList[i].imagen %> " alt="">
+                    <img class="img-thumbnail img-fluid" src="/img/<%= prod.img %> " alt="">
                 </a>
             </div>
             <% } %>
