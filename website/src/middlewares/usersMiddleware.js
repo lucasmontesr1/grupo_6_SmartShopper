@@ -11,7 +11,7 @@ const {
 
 const middleware = {
     checkUserExist: (req, res, next) => {
-        UserModel.findAll({
+        return UserModel.findAll({
             where: {
                 [Op.or]: [{
                         document: req.body.document
@@ -23,19 +23,21 @@ const middleware = {
             }
         }).then((users) => {
             if (users.length > 0) {
-                console.log('User already exist')
-                return
+                console.log('User already exists')
+                return res.redirect('/users/login')
+            } else {
+                return next();
             }
-        }).catch(err => console.log(err))
-        console.log('New user')
-        next()
+        }).catch(err => {
+            console.log(err);
+            return res.redirect('/')
+        })
     },
-    checkPassword: (req, res) => {},
     checksLogin: [
         body('email').custom((value) => {
-            UserModel.findAll({where: {email:value}}).then((users)=>{
-                return users.length>0
-            }).catch((err)=>{
+            return getUserbyEmail(value).then((user) => {
+                return user.email == value
+            }).catch((err) => {
                 console.log(err);
                 return false
             })
@@ -47,15 +49,22 @@ const middleware = {
         body('password').custom((value, {
             req
         }) => {
-            UserModel.findAll({where: {email: req.body.email}}).then((users) => {
-                user = users[0];
+            return getUserbyEmail(req.body.email).then(user => {
                 return bcrypt.compareSync(value, user.password)
-            }).catch((err)=>{
-                console.log(err);
-                return false
             })
         }).withMessage('Incorrect password')
     ]
+}
+
+const getUserbyEmail = email => {
+    return UserModel.findOne({
+        where: {
+            email: email
+        }
+    }).then(response => {
+        return response.dataValues
+    })
+
 }
 
 module.exports = middleware

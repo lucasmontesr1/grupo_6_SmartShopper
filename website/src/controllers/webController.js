@@ -21,7 +21,7 @@ const webController = {
     },
     nosotros: function(req,res){
         //res.sendFile(path.resolve(__dirname, '../views/partials/nosotros.html'));
-        res.render(path.resolve(__dirname, '../views/nosotros'), { Title: 'Nosotros' });
+        res.render(path.resolve(__dirname, '../views/nosotros'));
     },
     contact: function (req, res) {
         //res.sendFile(path.resolve(__dirname, '../views/partials/contact.html'));

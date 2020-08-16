@@ -23,7 +23,6 @@ const User = db.define('user', {
             password: {
                 type: DataTypes.STRING(156),
                 allowNull: false,
-                unique: true
             },
             img: {
                 type: DataTypes.STRING

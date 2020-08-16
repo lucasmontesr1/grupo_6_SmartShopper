@@ -27,7 +27,7 @@ const productController = {
         return
     },
     create: (req, res, next) => {
-        var catArray = CategoryModel.findAll()
+        var catArray = CategoryModel.findAll();
         //let categories = jsonDbService.getFile('categories');
         switch (req.method) {
             case 'GET':
