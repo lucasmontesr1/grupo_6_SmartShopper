@@ -24,6 +24,7 @@
                      <div class="input-group mb-3"> 
                      <div class="row">     
                         <button class="btn btn-primary mx-1" type="submit">Comprar</button>
+                        <% if (locals.user) {%>
                         <button type="button" class="btn mx-1 btn-warning">
                             <a href="/products/<%= product.id %>/edit "
                                 class=" active">Editar</a>
@@ -33,6 +34,7 @@
                             <input type="hidden">
                             <button type="submit" class="mx-1 btn btn-danger">Delete</button>
                         </form>
+                        <% } %> 
                         
                     </div>
                 </div>

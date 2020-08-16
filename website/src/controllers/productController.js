@@ -19,7 +19,6 @@ const productController = {
                     allProducts
                 })
             })
-
             return
         } else {
             res.redirect('/')
