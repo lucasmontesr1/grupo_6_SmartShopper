@@ -87,28 +87,34 @@ const productController = {
                     }).then(() => {
                         res.redirect(`/products/${id}`);
                     })
-                    fs.unlinkSync(path.resolve(__dirname, '../../public/img', deleteFile));
+                    if (req.file) {
+                        fs.unlinkSync(path.resolve(__dirname, '../../public/img', deleteFile));
+                    }
                 })
                 break;
         }
     },
     delete: (req, res) => {
-        ProductModel.destroy({where:{id:req.params.id}}).then(()=>{
+        ProductModel.destroy({
+            where: {
+                id: req.params.id
+            }
+        }).then(() => {
             res.redirect('/')
             return
-        }).catch(err=>console.log(err))
-     return
+        }).catch(err => console.log(err))
+        return
     },
     search: (req, res) => {
         console.log(req.query);
         ProductModel.findAll({
-                where: req.query
-            }).then((results) => {
+            where: req.query
+        }).then((results) => {
             res.render(path.resolve(__dirname, '../views/productFilter.ejs'), {
                 results
             });
         });
-        
+
     }
 }
 module.exports = productController;
