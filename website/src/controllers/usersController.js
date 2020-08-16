@@ -17,7 +17,7 @@ const usersController = {
             email: user.email,
             password: bcrypt.hashSync(user.password, salt),
             img: req.file ? req.file.filename : "no-image",
-            document: req.body.document
+            document: user.document
         }
         UserModel.create({
             firstName: newUser.name,
@@ -27,7 +27,7 @@ const usersController = {
             img: newUser.img,
             document: newUser.document
         }).then(() => console.log('New user created')).catch(err => console.log(err));
-        res.redirect('/')
+        res.redirect('/users/login')
     },
     get: (req, res) => {
         res.render(path.resolve(__dirname, '../views/userRegister.ejs'));
@@ -44,8 +44,7 @@ const usersController = {
             case 'POST':
                 console.log('users POST controller')
                 let errors = validationResult(req);
-                console.log(errors)
-                if (!errors.isEmpty) {
+                if (errors.errors.isEmpty) {
                     console.log('Errors')
                     let parsedErrors = {};
                     errors.errors.forEach((err) => {

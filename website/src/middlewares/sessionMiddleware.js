@@ -1,5 +1,4 @@
 const path = require('path');
-const jsonDbService = require(path.resolve(__dirname, '../services/jsonDbService'));
 const UserModel = require(path.resolve(__dirname, '../database/models/User'));
 
 module.exports = (req, res, next) => {
@@ -8,11 +7,7 @@ module.exports = (req, res, next) => {
         res.locals.user = req.session.user;
         return next();
     } else if (req.cookies.email) {
-        UserModel.findOne({
-            where: {
-                email: req.cookies.email
-            }
-        }).then((user) => {
+        return getUserbyEmail.then((user) => {
             delete user.password;
             req.session.user = user;
             res.locals.user = user;
@@ -22,4 +17,14 @@ module.exports = (req, res, next) => {
     } else {
         return next();
     }
+}
+
+const getUserbyEmail = email => {
+    return UserModel.findOne({
+        where: {
+            email: email
+        }
+    }).then(response => {
+        return response.dataValues
+    })
 }

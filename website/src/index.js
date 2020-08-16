@@ -5,6 +5,8 @@ const webRoutes = require(path.resolve(__dirname, './routes/webRoutes'));
 const PORT = 3000;
 const methodOverride = require('method-override');
 const customSession = require(path.resolve(__dirname, './middlewares/sessionMiddleware'));
+const categoriesMiddleware = require(path.resolve(__dirname, './middlewares/categoriesMiddleware'));
+
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 
@@ -13,7 +15,7 @@ const associations = require(path.resolve(__dirname, './database/associations'))
 
 sequelize.authenticate().then(() => {
         console.log('Connection has been established successfully.');
-        associations()
+        associations();
     }).catch(err => {
         console.error('Unable to connect to the database:', err);
     });
@@ -25,12 +27,13 @@ app.use(session({
     resave: true,
     saveUninitialized: true,
 }))
+
+app.use(categoriesMiddleware);
 app.use(cookieParser());
 app.use(customSession);
 app.use(methodOverride('_method'));
 app.use(express.static('public'));
 app.use(webRoutes);
-app.use(acceso);
 
 
 app.listen(PORT, console.log(`Starting server on port: ${PORT}`));
