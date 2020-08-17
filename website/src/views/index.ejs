@@ -8,17 +8,17 @@
                 <h1 class="col-12 text-center mt-5">Recomendados para vos</h1>
                 <!-- Card Slidder starts here-->
                 <div class="row overflow-auto flex-nowrap card-deck">
-                    <% for (let i = 0; i<products.length;i++){ %>
+                    <% for (const product of products){ %>
                     <div class="col-sm-1 col-md-auto col-lg-3 d-flex align-items-stretch">
                         <div class="card text-left shadow-sm" style="width: 19rem;">
-                            <img class="card-img-top card-img " src="/img/<%=products[i].imagen%>"  alt="Card image cap">
+                            <img class="card-img-top card-img " src="/img/<%=product.img%>" alt="Card image cap">
                             <div class="card-body">
-                                <h5 class="card-title"><%=products[i].nombre %> </h5>
-                                <p class="card-text d-inline-block text-break height-description"><%=products[i].descripcion%> </p>
-                                <p class="card-text font-weight-bolder">$ <%=products[i].precio%> </p>
+                                <h5 class="card-title"><%=product.name %> </h5>
+                                <p class="card-text d-inline-block text-break height-description"><%=product.description%> </p>
+                                <p class="card-text font-weight-bolder">$ <%=product.price%> </p>
                                 <div>
                                     <a href="/payment" class="btn btn-primary">Comprar</a>
-                                    <a href="/products/<%= products[i].id %>"  class="btn btn-info">Detalle</a>
+                                    <a href="/products/<%= product.id %>"  class="btn btn-info">Detalle</a>
                                 </div>
                                 
                             </div>

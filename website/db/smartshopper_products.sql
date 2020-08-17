@@ -24,25 +24,30 @@ USE `smartshopper`;
 DROP TABLE IF EXISTS `products`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
+
 CREATE TABLE `products` (
-  `id (PK)` int(11) NOT NULL,
+  `id` int(11) NOT NULL,
   `name` varchar(45) DEFAULT NULL,
-  `description` varchar(45) DEFAULT NULL,
-  `price` varchar(45) DEFAULT NULL,
-  `image` varchar(45) DEFAULT NULL,
-  `category` varchar(45) DEFAULT NULL,
-  `stock` varchar(45) DEFAULT NULL,
-  `discount` varchar(45) DEFAULT NULL,
-  `createAt` timestamp NULL DEFAULT NULL,
-  `updateAt` timestamp NULL DEFAULT NULL,
-  `deleteAt` timestamp NULL DEFAULT NULL,
-  PRIMARY KEY (`id (PK)`)
+  `description` varchar(256) DEFAULT NULL,
+  `price` decimal(10,3) DEFAULT NULL,
+  `img` varchar(45) DEFAULT NULL,
+  `color` varchar(45) DEFAULT NULL,
+  `createdAt` timestamp(1) NULL DEFAULT NULL,
+  `deletedAt` timestamp(1) NULL DEFAULT NULL,
+  `updatedAt` timestamp(1) NULL DEFAULT NULL,
+  `categoryId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `products`
 --
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`);
+
+ALTER TABLE `products`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+COMMIT;
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;

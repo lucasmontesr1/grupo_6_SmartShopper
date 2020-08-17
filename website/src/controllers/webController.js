@@ -1,15 +1,14 @@
 const path = require('path');
-const fs = require('fs');
 const mercadopago = require('mercadopago');
-
-
+const ProductModel = require(path.resolve(__dirname, '../database/models/Product'));
 
 const webController = {
     index: function(req, res){
-        console.log(res.locals);
-        console.log(req.session);
-        let products = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../data/products.json')));
-        res.render(path.resolve(__dirname, '../views/index.ejs'),{products:products})
+        ProductModel.findAll().then((products)=>{
+                    res.render(path.resolve(__dirname, '../views/index.ejs'), {
+                        products
+                    })
+        })
     },
     addItem:function(req,res){
         res.render(path.resolve(__dirname, '../views/productAdd.ejs'))
@@ -22,7 +21,7 @@ const webController = {
     },
     nosotros: function(req,res){
         //res.sendFile(path.resolve(__dirname, '../views/partials/nosotros.html'));
-        res.render(path.resolve(__dirname, '../views/nosotros'), { Title: 'Nosotros' });
+        res.render(path.resolve(__dirname, '../views/nosotros'));
     },
     contact: function (req, res) {
         //res.sendFile(path.resolve(__dirname, '../views/partials/contact.html'));
@@ -33,7 +32,7 @@ const webController = {
     },
     payment: (req, res) => {
         mercadopago.configure({
-            access_token: 'TEST-3311244539256985-040311-7c4165b250f77b59b98b56735ce690e2-205989559'
+            access_token: 'APP_USR-3311244539256985-040311-c7fa49c4c335c2c84ba2029bf405ea73-205989559'
         })
 
         let preference = {

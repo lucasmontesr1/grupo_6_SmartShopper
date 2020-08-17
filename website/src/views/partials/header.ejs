@@ -22,9 +22,9 @@
                                 Categorias
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="/category/1">Muebles</a>
-                                <a class="dropdown-item" href="/category/2">Electrdomésticos</a>
-                                <a class="dropdown-item" href="/category/3">Cocina</a>
+                                <% for (const category of locals.categories) {%>
+                                <a class="dropdown-item" href="/products/search?categoryId=<%= category.id %> "><%= category.name %></a> </a>
+                                <% } %> 
                             </div>
                         </li>
                         <li class="nav-item">

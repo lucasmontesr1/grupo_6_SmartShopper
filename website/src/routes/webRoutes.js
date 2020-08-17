@@ -16,7 +16,7 @@ router.get('/', webController.index);
 router.get('/admin/items', webController.addItem);
 router.get('/payment', webController.payment);
 router.post('/procesar-pago', webController.payment)
-router.get('/nosotros', webController.nosotros);
+router.get('/nosotros',webController.nosotros);
 router.get('/contact', webController.contact);
 router.get('/carrito', webController.carrito);
 router.get('/categorias', webController.show);

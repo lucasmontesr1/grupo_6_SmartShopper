@@ -28,8 +28,8 @@
                                     <div class="form-group d-flex flex-wrap col-6 form-items">
                                         <select id="categoria" name="categoria" class="form-control">
                                             <option value="" disabled selected> Categoria</option>
-                                            <% for (let i = 0; i < categories.length; i++) { %> 
-                                            <option value="<%= categories[i] %>"> <%= categories[i] %> </option>
+                                            <% for (const category of categories) { %> 
+                                            <option value="<%= category.id %>"> <%= category.name %> </option>
                                             <% } %> 
                                         </select> 
                                     </div>
