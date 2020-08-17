@@ -34,37 +34,40 @@ const middleware = {
         })
     },
     checksLogin: [
-        body('email').custom((value) => {
-            return getUserbyEmail(value).then((user) => {
-                return user.email == value
-            }).catch((err) => {
-                console.log(err);
-                return false
-            })
-        }).withMessage('Cannot recognize email'),
+        body('email').custom(async function (value){
+            let user = await getUserbyEmail(value);
+            if (user == null) {
+                return Promise.reject('Invalid Email')
+            }
+            return user.email == value ? true : Promise.reject('Cannot recognize email')
+        }),
         body('password').isLength({
             min: 8
         }).withMessage('The password is too short'),
         body('email').isEmail().withMessage('Invalid Email'),
-        body('password').custom((value, {
+        body('password').custom(async function (value, {
             req
-        }) => {
-            return getUserbyEmail(req.body.email).then(user => {
-                return bcrypt.compareSync(value, user.password)
-            })
-        }).withMessage('Incorrect password')
+        }) {
+            let user = await UserModel.findOne({
+                where: {
+                    email: req.body.email
+                }
+            });
+            if (user == null){
+                return Promise.reject('Invalid password')
+            }
+            return bcrypt.compareSync(value, user.password) ? true : Promise.reject('Incorrect password')
+        })
     ]
 }
 
-const getUserbyEmail = email => {
-    return UserModel.findOne({
+const getUserbyEmail = async function (email)  {
+    return await UserModel.findOne({
         where: {
             email: email
         }
     }).then(response => {
-        return response.dataValues
+        return response
     })
-
 }
-
 module.exports = middleware

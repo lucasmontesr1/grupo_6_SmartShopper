@@ -44,7 +44,9 @@ const usersController = {
             case 'POST':
                 console.log('users POST controller')
                 let errors = validationResult(req);
-                if (errors.errors.isEmpty) {
+                console.log(errors)
+                console.log(errors.errors)
+                if (errors.errors.length != 0) {
                     console.log('Errors')
                     let parsedErrors = {};
                     errors.errors.forEach((err) => {
@@ -57,7 +59,6 @@ const usersController = {
                     });
                     break;
                 }
-                console.log('Not errors');
 
                 UserModel.findOne({
                     where: {
