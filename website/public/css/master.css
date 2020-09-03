@@ -100,3 +100,8 @@ img {
 a {
     text-decoration: none;    /* For Example */
 }
+
+.valid-field{
+}
+.invalid-field{
+}
