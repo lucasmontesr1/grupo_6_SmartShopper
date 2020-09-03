@@ -43,3 +43,6 @@ implementadas.
 
 ## Tablero de Trabajo Sprint 4 Actualizado
 https://github.com/lucasmontesr1/grupo_6_SmartShopper/projects/1
+
+## Actualización README:
+Decidimos ampliar nuestra oferta de productos incorporando una variedad más amplia de categorías con productos dentro de ellas relacionándose a esa misma temática. Ahora SmartShopper no es solamente una página dedicada a la venta especial de muebles para el hogar sino que también cuenta con ofertas de electróncios, productos personales y de fitness, juegos y entre otros.
