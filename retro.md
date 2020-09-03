@@ -19,3 +19,7 @@ En conlución, consideramos que en este sprint trabajamos mejorar que en otros y
 En este sprint completamos todo en tiempo y forma. La comunicación si fue bastante debil en esta ocación asi que consideramos que estaría bueno para la próxima fortalecer más esa área nuevamente. 
 Además, consideramos que debemos seguir aportando todos lo más que podamos ya que nos complementamos mejor. 
 En conclusión, creemos que podemos  mejorar más la comunicación para una óptima entrega. 
+
+## Breve retrospectiva Sprint 6
+En esta entrega cumplimos con todo lo que teniamos que hacer. Podemos claramente destacar que en esta ocación tuvimos una gran comunicación dentro del equipo, todos aportados muchos detalles interesantes e hicimos llamada grupal para poder realizar dichos objetivos. Creemos que conseguimos lograr lo que siempre teníamos como mayor debilidad. Por lo tanto, consideramos que estamos yendo por un buen camino. 
+En conclusión, vamos a seguir tomando las mismas medidas para desarrollar lo que nos falta y poder cumplir con todo de forma exitosa.

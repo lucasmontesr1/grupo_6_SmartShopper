@@ -7,7 +7,7 @@ module.exports = (req, res, next) => {
         res.locals.user = req.session.user;
         return next();
     } else if (req.cookies.email) {
-        return getUserbyEmail.then((user) => {
+        return getUserbyEmail(req.cookies.email).then((user) => {
             delete user.password;
             req.session.user = user;
             res.locals.user = user;
