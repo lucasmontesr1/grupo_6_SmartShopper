@@ -6,6 +6,8 @@ const PORT = 3000;
 const methodOverride = require('method-override');
 const customSession = require(path.resolve(__dirname, './middlewares/sessionMiddleware'));
 const categoriesMiddleware = require(path.resolve(__dirname, './middlewares/categoriesMiddleware'));
+//const carritoCantidadMiddleware = require('./middlewares/carritoCantidad');
+//const carritoRoutes = require('./routes/carritoRoutes');
 
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
@@ -34,6 +36,7 @@ app.use(customSession);
 app.use(methodOverride('_method'));
 app.use(express.static('public'));
 app.use(webRoutes);
-
+//app.use(carritoCantidadMiddleware);
+//app.use(carritoRoutes);
 
 app.listen(PORT, console.log(`Starting server on port: ${PORT}`));

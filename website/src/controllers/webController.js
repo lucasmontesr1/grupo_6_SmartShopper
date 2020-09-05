@@ -14,7 +14,7 @@ const webController = {
         res.render(path.resolve(__dirname, '../views/productAdd.ejs'))
     },
     carrito: function (req, res) {
-        res.render(path.resolve(__dirname, '../views/carrito.ejs'))
+        res.render(path.resolve(__dirname, '../views/carrito/carrito.ejs'))
     },
     productDetail:function(req,res){
         res.render(path.resolve(__dirname, '../views/productDetail.ejs'))
