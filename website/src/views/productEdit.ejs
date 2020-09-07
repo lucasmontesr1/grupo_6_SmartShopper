@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('partials/head') %> 
+<%- include('partials/head') %>
+
 <body>
     <%- include('partials/header') %>
     <div class="container">
@@ -9,23 +10,26 @@
             <div class="row">
                 <div class="mr-auto col-md-6 col">
                     <h3 class=" sansserif mb-3 "><%= product.name %></h2>
-                    <div class="">
-                        <img class="img-edit-form img-thumbnail" src="/img/<%= product.img %>" alt="tostadora">
-                    </div>
+                        <div class="">
+                            <img class="img-edit-form img-thumbnail" src="/img/<%= product.img %>" alt="tostadora">
+                        </div>
                 </div>
 
                 <div class="col-md-5 col">
                     <h3 class="sansserif">Datos</h3>
                     <form action="/products/<%= product.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-                         <input type="hidden" id="id" name="id" value="<%= product.id %>">
+                        <input type="hidden" id="id" name="id" value="<%= product.id %>">
                         <div class="row form-items justify-content-center">
 
                             <div class="d-flex flex-wrap col-12 form-items">
-                                <input type="text" class="form-control" id="nombre" name="nombre" placeholder=" <%= product.name %> " maxlength="150" minlength="5" required>
+                                <input type="text" class="form-control" id="nombre" name="nombre"
+                                    placeholder=" <%= product.name %> " maxlength="150" minlength="5" required>
                             </div>
                             <div class=" d-flex flex-wrap col-12 form-items">
                                 <label for="description">Descripcion del articulo</label>
-                                <textarea placeholder="<%= product.description %> " class="form-control" id="description" name="description" rows="3" maxlength="150" minlength="20" required></textarea>
+                                <textarea placeholder="<%= product.description %> " class="form-control"
+                                    id="description" name="description" rows="3" maxlength="150" minlength="20"
+                                    required></textarea>
                             </div>
                             <div class=" d-flex flex-wrap col-6 form-items">
                                 <input type="number" class="form-control d-flex" id="precio" name="precio"
@@ -34,23 +38,26 @@
                             <div class="form-group d-flex flex-wrap col-6 form-items">
                                 <select id="categoria" name="categoria" class="form-control">
                                     <% for (const category of categories) { %>
-                                    <option value="<%= category.id  %> " disabled <% if (category.id == product.categoryId) {%> selected <% } %> >
+                                    <option value="<%= category.id  %> " disabled
+                                        <% if (category.id == product.categoryId) {%> selected <% } %>>
                                         <%= category.name %></option>
                                     <% } %>
                                 </select>
                             </div>
-                            <div class="custom-file form-items mb-4">
+                            <div class="custom-file form-items mb-4 mx-3">
                                 <input type="file" class="custom-file-input" id="imagen" name="imagen">
                                 <label id="file-name" class="custom-file-label" for="imagen">Selecciona una nueva
                                     imagen</label>
                             </div>
-                            <div class="d-flex container form-button"> 
+                            <div class="d-flex container form-button">
                                 <button type="submit"
-                                    class="mx-1 btn btn-success col-lg-3 form-button">New</button>
-                                <button type="submit" class="mx-1 btn btn-primary col-lg-3 form-button">Edit</button>
-                                <form class="" enctype="multipart/form-data" name="deleteform"
-                                    action="/products/<%= product.id %>?_method=DELETE" method="POST">
-                                    <input type="hidden">
+                                    class="mx-1 btn btn-success col-lg-3 form-button my-2">New</button>
+                                <button type="submit"
+                                    class="mx-1 btn btn-primary col-lg-3 form-button my-2">Edit</button>
+                                <form action=""></form>
+                                <form class="my-2" action="/products/<%= product.id %>?_method=DELETE"
+                                    method="POST">
+                                    <input type="hidden" name="_method" value="DELETE">
                                     <button type="submit" class="mx-1 btn btn-danger">Delete</button>
                                 </form>
                             </div>
@@ -64,17 +71,19 @@
             <% for (const prod of allProducts) { %>
             <div class="col-md-3 col-sm-6 mb-4">
                 <a href="#">
-                    <img class="img-thumbnail img-fluid" src="/img/<%= prod.img %> " alt="">
+                    <img class="card img-limit border" src="/img/<%= prod.img %> " alt="">
                 </a>
             </div>
             <% } %>
         </div>
     </div>
-<%- include('partials/footer') %>
-<script>
-    $('#imagen').change(function () {
-        $("#file-name").text(this.files[0].name);
-    });
-</script>
+    <%- include('partials/footer') %>
+    <script>
+        $('#imagen').change(function () {
+            $("#file-name").text(this.files[0].name);
+        });
+    </script>
+    <script src="/js/card.js"></script>
 </body>
+
 </html>
