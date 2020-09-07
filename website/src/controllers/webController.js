@@ -21,7 +21,7 @@ const webController = {
             return
         }
         if (!req.session.user) {
-            res.redirect('/');
+            res.redirect('/users/login');
             return
         }
 
@@ -30,14 +30,17 @@ const webController = {
             hasCheckedOut: false,
             status: 'pending',
         }).then(order => {
-            orderinstance = order; 
+            orderinstance = order;
             console.log('Order Saved')
-        }).catch(e=>console.log(e));
+        }).catch(e => console.log(e));
 
         var preference = {
             items: [],
         }
         var cart = JSON.parse(req.cookies.cart);
+        if (cart.length < 1) {
+            res.redirect('/')
+        }
         var ids = [];
         var total = 0
         cart.forEach(e => {

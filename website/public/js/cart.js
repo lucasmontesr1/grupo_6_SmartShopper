@@ -19,14 +19,23 @@ window.addEventListener("load", function () {
             });
         });
     }
-});
+
+
+    var directBuyButtons = document.querySelectorAll('.buy-button');
+    if (directBuyButtons) {
+        directBuyButtons.forEach(e => {
+            e.addEventListener('click', function (event) {
+                directBuy(event);
+            });
+        });
+    }
+})
 
 function addItem(event) {
     var cart = [];
     var item = {};
     var tempCart;
     var quantity = parseInt(document.getElementById('quantity').value)
-    console.log(quantity);
     if (!quantity) {
         quantity = 1;
     }
@@ -47,10 +56,11 @@ function addItem(event) {
         cart = tempCart;
     }
     setCookie('cart', JSON.stringify(cart));
-}
-
-function removeShadow(event) {
-    event.target.classList.remove('shadow')
+    var btn = document.getElementById('addItem');
+    if (btn) {
+        btn.classList.add('btn-success')
+        btn.classList.remove('btn-primary')
+    }
 }
 
 function getCookie(cname) {
@@ -77,7 +87,7 @@ function setCookie(cname, cvalue, exdays) {
 
 function eraseCookie(event) {
     let toBeErasedId = parseInt(event.target.value);
-        console.log(toBeErasedId)
+    console.log(toBeErasedId)
 
     let cart = JSON.parse(getCookie('cart'));
     console.log(cart)
@@ -88,6 +98,17 @@ function eraseCookie(event) {
     if (cartIndexToBeDeteled > -1) {
         cart.splice(cartIndexToBeDeteled, 1);
     }
+    setCookie('cart', JSON.stringify(cart));
+    window.location.href = '/carrito';
+}
+
+function directBuy(event) {
+    var itemId = event.target.value
+    var itemQuantity = 1;
+    var cart = [{
+        id: itemId,
+        quantity: itemQuantity
+    }];
     setCookie('cart', JSON.stringify(cart));
     window.location.href = '/carrito';
 }
