@@ -25,7 +25,8 @@ const usersController = {
             email: newUser.email,
             password: newUser.password,
             img: newUser.img,
-            document: newUser.document
+            document: newUser.document,
+            admin: false,
         }).then(() => console.log('New user created')).catch(err => console.log(err));
         res.redirect('/users/login')
     },
@@ -44,8 +45,6 @@ const usersController = {
             case 'POST':
                 console.log('users POST controller')
                 let errors = validationResult(req);
-                console.log(errors)
-                console.log(errors.errors)
                 if (errors.errors.length != 0) {
                     console.log('Errors')
                     let parsedErrors = {};

@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
-    <%- include('partials/head')%>
-    <body>
-        <%-include('partials/header')%>
-        <!---------Comienza el main------------------------>
-        <div class="container">
-            <h3 class="my-4 font-weight-bold sansserif mb-3"><%= product.name %></h1>
+<%- include('partials/head')%>
+
+<body>
+    <%-include('partials/header')%>
+    <!---------Comienza el main------------------------>
+    <div class="container">
+        <h3 class="my-4 font-weight-bold sansserif mb-3"><%= product.name %></h1>
             <div class="row">
                 <div class="col-md-7">
                     <img class="img-edit-form img-thumbnail " src="/img/<%= product.img %>" alt="tostadora">
@@ -13,31 +14,36 @@
                 <div class="col-md-4">
                     <h3 class="my-3 font-weight-bold sansserif mb-3">Descripcion</h3>
                     <p> <%= product.description %> </p>
-                
-                    <h4>Precio: $ <%= product.price %>  </h4>
+
+                    <h4>Precio: $ <%= product.price %> </h4>
                     <div class="input-group mb-4">
                         <div class="input-group-prepend">
-                          <button class="btn btn-outline-secondary" type="button" id="button-addon1">Cantidad</button>
+                            <button class="btn btn-outline-secondary" type="button" id="button-addon1">Cantidad</button>
                         </div>
-                        <input type="number" class="form-control max__width" placeholder="Cantidad" aria-label="Example text with button addon" aria-describedby="button-addon3">
-                      </div>    
-                     <div class="input-group mb-3"> 
-                     <div class="row">     
-                        <button class="btn btn-primary mx-1" type="submit">Comprar</button>
-                        <% if (locals.user) {%>
-                        <button type="button" class="btn mx-1 btn-warning">
-                            <a href="/products/<%= product.id %>/edit "
-                                class=" active">Editar</a>
-                        </button>
-                        <form class="" enctype="multipart/form-data" name="deleteform"
-                            action="/products/<%= product.id %>?_method=DELETE" method="POST">
-                            <input type="hidden">
-                            <button type="submit" class="mx-1 btn btn-danger">Delete</button>
-                        </form>
-                        <% } %> 
-                        
+                        <input id="quantity" type="number" class="form-control max__width" placeholder=1
+                            aria-label="Example text with button addon" aria-describedby="button-addon3">
                     </div>
-                </div>
+                    <div class="input-group mb-3 ml-2">
+                        <div class="row">
+                            <% if (locals.user) {%>
+                            <button class="btn btn-primary mx-1 my-1" type="submit">Comprar</button>
+                            <button class="btn btn-primary mx-1 my-1" type="submit" id="addItem">
+                                <img class="icon" src="/assets/icons/add_shopping_cart.svg" alt="test">
+                            </button>
+
+                            <% if (locals.user.admin) {%>
+                            <button type="button" class="btn mx-1 btn-warning my-1">
+                                <a href="/products/<%= product.id %>/edit " class=" active">Editar</a>
+                            </button>
+                            <form class="my-1" enctype="multipart/form-data" name="deleteform"
+                                action="/products/<%= product.id %>?_method=DELETE" method="POST">
+                                <input type="hidden">
+                                <button type="submit" class="mx-1 btn btn-danger">Delete</button>
+                            </form>
+                            <% }} %>
+
+                        </div>
+                    </div>
                 </div>
             </div>
             <h3 class="my-4 font-weight-bold sansserif mb-3">Otros Productos</h3>
@@ -45,18 +51,21 @@
                 <% for(const prod of allProducts) { %>
                 <div class="col-md-3 col-sm-6 mb-4">
                     <a href="#">
-                        <img class="img-thumbnail img-fluid" src="/img/<%= prod.img %> " alt="">
+                        <img class="card img-limit border" src="/img/<%= prod.img %> " alt="">
                     </a>
                 </div>
-                <% } %> 
+                <% } %>
             </div>
-        </div>
-        <%-include('partials/footer')%>
-        <script>
-            var button = document.querySelector('form[name="myform"] > button');
-            button.addEventListener(function () {
-                document.querySelector('form[name="myform"]').submit();
-            });
-        </script>
-    </body>
+    </div>
+    <%-include('partials/footer')%>
+    <script>
+        var button = document.querySelector('form[name="myform"] > button');
+        button.addEventListener(function () {
+            document.querySelector('form[name="myform"]').submit();
+        });
+    </script>
+    <script src="/js/card.js"></script>
+    <script src="/js/cart.js"></script>
+</body>
+
 </html>

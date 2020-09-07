@@ -101,7 +101,12 @@ a {
     text-decoration: none;    /* For Example */
 }
 
-.valid-field{
+.img-limit {
+    max-width:450px;
+    max-height:450px;
 }
-.invalid-field{
+
+.icon {
+    width: 3vh;
+    height: 3vh
 }

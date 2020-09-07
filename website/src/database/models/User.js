@@ -29,7 +29,10 @@ const User = db.define('user', {
             },
             document: {
                 type: DataTypes.STRING
-            }
+            },
+            admin: {
+                type: DataTypes.BOOLEAN
+            },
         });
 
 module.exports = User;

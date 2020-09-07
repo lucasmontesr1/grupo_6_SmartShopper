@@ -5,12 +5,12 @@
         <%-include('partials/header')%>
         
             <div class=" container-fluid flex-row ml-3 mt-4">
-                <h1 class="col-12 text-center mt-5">Recomendados para vos</h1>
+                <h1 class="col-12 my-3 sansserif">Recomendados para vos</h1>
                 <!-- Card Slidder starts here-->
                 <div class="row overflow-auto flex-nowrap card-deck">
                     <% for (const product of products){ %>
                     <div class="col-sm-1 col-md-auto col-lg-3 d-flex align-items-stretch">
-                        <div class="card text-left shadow-sm" style="width: 19rem;">
+                        <div class="card text-left shadow-sm mb-4" style="width: 19rem;">
                             <img class="card-img-top card-img " src="/img/<%=product.img%>" alt="Card image cap">
                             <div class="card-body">
                                 <h5 class="card-title"><%=product.name %> </h5>
@@ -29,6 +29,6 @@
             </div> 
         </div>
         <%- include('partials/footer') %>
-        
+        <script src="/js/card.js"></script>
     </body>
 </html>

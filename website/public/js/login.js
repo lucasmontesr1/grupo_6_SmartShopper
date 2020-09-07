@@ -6,7 +6,9 @@ var passwordRegExp = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/
 window.addEventListener("load", function () {
     console.log('Window event listener')
     form = document.getElementById('form');
-    form.addEventListener('submit', function(event){loginValidations(event)});
+    form.addEventListener('submit', function (event) {
+        loginValidations(event)
+    });
 })
 
 function loginValidations(event) {
@@ -35,11 +37,10 @@ function loginValidations(event) {
         email.classList.add('is-valid');
     }
 
-    console.log('Validations finished')
+    console.log('Validations finished');
     console.log(errors);
 
     if (errors.length > 0) {
         event.preventDefault()
     }
-
 }
