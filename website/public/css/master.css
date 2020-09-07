@@ -101,3 +101,12 @@ a {
     text-decoration: none;    /* For Example */
 }
 
+.img-limit {
+    max-width:450px;
+    max-height:450px;
+}
+
+.icon {
+    width: 3vh;
+    height: 3vh
+}

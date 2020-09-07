@@ -99,6 +99,7 @@ CREATE TABLE `products` (
   `price` decimal(10,3) DEFAULT NULL,
   `img` varchar(45) DEFAULT NULL,
   `color` varchar(45) DEFAULT NULL,
+  `admin` boolean DEFAULT FALSE,
   `createdAt` timestamp(1) NULL DEFAULT NULL,
   `deletedAt` timestamp(1) NULL DEFAULT NULL,
   `updatedAt` timestamp(1) NULL DEFAULT NULL,
@@ -167,6 +168,7 @@ CREATE TABLE `users` (
   `email` varchar(100) DEFAULT NULL,
   `password` varchar(156) DEFAULT NULL,
   `img` varchar(45) DEFAULT NULL,
+  `admin` boolean DEFAULT FALSE,
   `document` varchar(45) DEFAULT NULL,
   `createdAt` timestamp(1) NULL DEFAULT NULL,
   `updatedAt` timestamp(1) NULL DEFAULT NULL,
@@ -186,6 +188,20 @@ INSERT INTO `users` (`id`, `firstName`, `surname`, `email`, `password`, `img`, `
 (6, 'test', 'test', 'nuevotestdos2@gmail.com', '$2a$10$CdPuGSK/yzCOErlIPg.Eh.Z3.FzZQDqQtUZtPewrYUtMEH1sTAnhi', 'user-1597611984156-5991.png', '111223344', '2020-08-16 21:06:24.0', '2020-08-16 21:06:24.0', NULL),
 (7, 'lucas', 'montes', 'lucasmontesr@gmail.com', '$2a$10$xemgvt8IztLLzXr2e51p9OYiq2zpedjf8hIsTv4RgGYmh6v1im1Am', 'no-image', '41823580', '2020-08-18 02:45:39.0', '2020-08-18 02:45:39.0', NULL),
 (8, 'lucas', 'montes', 'lucasmontes@gmail.com', '$2a$10$HJAEc9aHM3S1F8l.PVPgeO6fbLRluCCJh.PGlkYX20svei4LOGafq', 'no-image', '41823456', '2020-08-18 22:03:25.0', '2020-08-18 22:03:25.0', NULL);
+
+
+CREATE TABLE `orders` (
+  `id` int(20) AUTO_INCREMENT NOT NULL,
+  `userId` int(45) DEFAULT NULL,
+  `amount` varchar(156) DEFAULT NULL,
+  `payment` int(20) DEFAULT NULL,
+  `hasCheckedOut` bool DEFAULT FALSE,
+  `status` varchar(30), 
+  `createdAt` timestamp(1) NULL DEFAULT NULL,
+  `updatedAt` timestamp(1) NULL DEFAULT NULL,
+  `deletedAt` timestamp(1) NULL DEFAULT NULL,
+  primary key (id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Índices para tablas volcadas
