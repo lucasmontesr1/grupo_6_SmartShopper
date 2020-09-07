@@ -21,6 +21,9 @@ router.get('/contact', webController.contact);
 router.get('/carrito', webController.carrito);
 router.get('/categorias', webController.show);
 
+router.get('/cookies', webController.cookies);
+router.get('/privacy', webController.privacy);
+
 router.get('/products/search', productController.search)
 router.delete('/products/:id', productController.delete)
 router.get('/products', productController.get);

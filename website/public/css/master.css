@@ -100,8 +100,42 @@ img {
 a {
     text-decoration: none;    /* For Example */
 }
+.all-footer {
+    bottom: 0;
+    width: 100%;
+}
 
-.valid-field{
+.list-main-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-self: flex-end;
 }
-.invalid-field{
+
+/*Iconos de redes sociales*/
+.list-icons-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
 }
+
+.icon-twitter {
+    width: 25px;
+    height: 25px;
+    padding: 5px;
+}
+
+.icon-instagram {
+    width: 25px;
+    height: 25px;
+    padding: 5px;
+}
+
+.icon-facebook {
+    width: 25px;
+    height: 25px;
+    padding: 5px;
+}
+

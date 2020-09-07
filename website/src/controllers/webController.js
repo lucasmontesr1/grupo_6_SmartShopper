@@ -30,6 +30,14 @@ const webController = {
     show: (req, res) => {
         res.render(path.resolve(__dirname, '../views/web/categories'), {platos});
     },
+    cookies: function(req,res){
+        //res.sendFile(path.resolve(__dirname, '../views/partials/cookies.html'));
+        res.render(path.resolve(__dirname, '../views/cookies'));
+    },
+    privacy: function(req,res){
+        //res.sendFile(path.resolve(__dirname, '../views/partials/privacy.html'));
+        res.render(path.resolve(__dirname, '../views/privacy'));
+    },
     payment: (req, res) => {
         mercadopago.configure({
             access_token: 'APP_USR-3311244539256985-040311-c7fa49c4c335c2c84ba2029bf405ea73-205989559'
